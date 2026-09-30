@@ -38,7 +38,7 @@ img{max-width:100%;height:auto}
 .btn-primary{color:var(--obsidian);background:var(--champagne);border-color:var(--champagne)}
 .btn-primary:hover{border-color:var(--amber-hot)}
 
-/* Hero: day and night spotlight the two halves of the line */
+/* Hero */
 .hero{margin-top:calc(-1 * var(--space-24));aspect-ratio:auto!important;min-height:800px}
 @media(min-width:761px){.hero .if-hero-flow{top:auto;bottom:0;height:auto;aspect-ratio:2048/768}.hero .if-hero-flow svg{display:block}}
 .hero .if-hero-copy{top:24%!important}
