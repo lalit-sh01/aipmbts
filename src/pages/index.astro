@@ -6,6 +6,7 @@ import TechPosts from '../components/TechPosts.astro';
 import Builds from '../components/Builds.astro';
 import AboutMe from '../components/AboutMe.astro';
 import Subscribe from '../components/Subscribe.astro';
+import Stage from '../components/Stage.astro';
 import { render } from '../lib/iflow.mjs';
 import { site } from '../data/site';
 
@@ -32,28 +33,29 @@ const flow = render('SignatureFlow', { animate: true, fit: 'cover', seed: 7 });
     </div>
   </section>
 
-  <div class="wrap">
-    <section class="block first" id="lessons">
+  <Stage />
+  <div class="scenes">
+    <section class="scene" id="lessons" data-tint="warm">
       <SectionHead side="warm">Product lessons</SectionHead>
       <Lessons />
       <p class="ask">Stuck on something that isn't here? <a href={`mailto:${site.email}?subject=A%20lesson%20idea`}>Tell me about it</a>. It may become the next lesson.</p>
     </section>
 
-    <section class="block" id="tech">
+    <section class="scene" id="tech" data-tint="net">
       <SectionHead side="cool">How the tech really works</SectionHead>
       <TechPosts />
     </section>
 
-    <section class="block" id="builds">
+    <section class="scene" id="builds" data-tint="grid">
       <SectionHead side="cool">Late-night builds</SectionHead>
       <Builds />
     </section>
 
-    <section class="block" id="about">
+    <section class="scene" id="about" data-tint="core">
       <SectionHead>A bit about me</SectionHead>
       <AboutMe />
     </section>
 
-    <div class="block"><Subscribe /></div>
+    <div class="scene-end"><Subscribe /></div>
   </div>
 </Base>

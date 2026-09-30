@@ -29,6 +29,10 @@ npm run build    # output in dist/
 - **Ford work stays abstract:** no product names and no figures.
 - **Copy follows the author's voice and style bible** (`AI-Product-Playbook/canon/11-author-voice.md` and `01-style-bible.md`).
 
+## Scenes
+
+On the home page each section is a full-screen scene. Its backdrop sits on a fixed stage behind the page (`src/components/Stage.astro`): warm light and bokeh for Product lessons, a living network for Tech, the topology grid for Builds, and a convergence core for About. `src/scripts/motion.ts` cross-fades the backdrops and blends the page tint continuously with scroll, so scenes flow into each other.
+
 ## Colour
 
 Warm (champagne) marks the product side, cool (electric blue) the tech side, in both themes. The theme switch is a plain light/dark toggle: Obsidian is the default, Paper the alternative. The choice is stored under `if-theme`, the key the Journal posts use.

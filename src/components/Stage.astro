@@ -1,0 +1,24 @@
+---
+// The scene stage: four full-screen backdrops fixed behind the home page.
+// motion.ts cross-fades them continuously with scroll, so sections blend into each other.
+// Built from Intelligent Flow primitives: gradient field + depth (warm), network (cool),
+// topology grid (systems), convergence core.
+const bokeh = [
+  { l: 6, t: 72, s: 5.5, o: 0.22, d: 0 }, { l: 15, t: 84, s: 3.2, o: 0.28, d: -6 },
+  { l: 3, t: 56, s: 2.2, o: 0.3, d: -12 }, { l: 24, t: 92, s: 7.5, o: 0.1, d: -3 },
+  { l: 11, t: 40, s: 1.6, o: 0.26, d: -9 }, { l: 32, t: 78, s: 2.6, o: 0.16, d: -15 },
+];
+---
+<div class="stage" aria-hidden="true">
+  <div class="layer layer-warm" data-scene="lessons">
+    <div class="warm-field"></div>
+    {bokeh.map((b) => (
+      <span class="st-bokeh" style={`left:${b.l}%;top:${b.t}%;width:${b.s}vw;height:${b.s}vw;opacity:${b.o};animation-delay:${b.d}s`}></span>
+    ))}
+  </div>
+  <canvas class="layer layer-net" data-scene="tech"></canvas>
+  <div class="layer layer-grid" data-scene="builds"><div class="st-grid"></div><div class="st-scan"></div></div>
+  <div class="layer layer-core" data-scene="about">
+    <div class="st-strand st-l"></div><div class="st-strand st-r"></div><div class="st-core"></div>
+  </div>
+</div>

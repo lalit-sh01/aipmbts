@@ -178,18 +178,41 @@ html.lenis,html.lenis body{height:auto}
 @media(min-width:761px){.hero .if-hero-copy.hero-copy{transform:translate3d(-50%,calc(var(--hero,0) * 90px),0)}}
 .hero-flow{transform:translate3d(0,calc(var(--hero,0) * -40px),0) scale(calc(1 + var(--hero,0) * .06));transform-origin:50% 64%;will-change:transform}
 
-/* A thread down the side fills with scroll progress, with a glowing tip */
-.thread{position:fixed;left:clamp(8px,1.6vw,28px);top:12vh;bottom:12vh;width:1px;background:var(--hairline);z-index:5;opacity:0;transition:opacity 700ms var(--if-ease);pointer-events:none}
-.thread.on{opacity:1}
-.thread-fill{position:absolute;left:0;top:0;width:1px;height:100%;background:linear-gradient(180deg,var(--amber),var(--converge-soft) 50%,var(--cyan-hot));transform:scaleY(var(--scroll,0));transform-origin:top}
-.thread-tip{position:absolute;left:-2px;width:5px;height:5px;border-radius:var(--radius-full);top:calc(var(--scroll,0) * 100%);background:var(--converge);box-shadow:var(--bloom-core)}
-@media(max-width:1180px){.thread{display:none}}
+/* ---------- Scenes ---------- */
+/* The page tint blends between scenes (set by motion.ts); the hero and footer sit on it too. */
+body{background:var(--scene-bg,var(--obsidian));transition:background-color 200ms linear}
+main,.site-foot,.site-top{position:relative;z-index:1}
+.stage{position:fixed;inset:0;z-index:0;pointer-events:none}
+.stage .layer{position:absolute;inset:0;opacity:0;will-change:opacity;width:100%;height:100%;display:block}
+/* Product lessons: warm light pooled low-left, with drifting bokeh */
+.warm-field{position:absolute;inset:0;background:radial-gradient(55% 75% at 0% 100%,var(--amber-glow),transparent 70%),radial-gradient(35% 45% at 100% 0%,var(--ember-haze),transparent 70%)}
+.st-bokeh{position:absolute;border-radius:var(--radius-full);background:var(--bokeh-warm);filter:blur(10px);animation:st-drift 24s var(--if-ease) infinite alternate}
+@keyframes st-drift{to{transform:translate3d(40px,-60px,0)}}
+/* Builds: the faint topology grid with a slow scan */
+.st-grid{position:absolute;inset:0;background-image:linear-gradient(var(--hairline-strong) 1px,transparent 1px),linear-gradient(90deg,var(--hairline-strong) 1px,transparent 1px);background-size:48px 48px;-webkit-mask-image:radial-gradient(75% 70% at 50% 50%,#000 20%,transparent 75%);mask-image:radial-gradient(75% 70% at 50% 50%,#000 20%,transparent 75%);opacity:.7}
+.st-scan{position:absolute;left:0;right:0;top:0;height:1px;background:linear-gradient(90deg,transparent,var(--cyan-hot),transparent);opacity:.4;animation:st-scan 9s linear infinite}
+@keyframes st-scan{from{transform:translateY(0)}to{transform:translateY(100vh)}}
+/* About: warm and cool strands meeting in one core */
+.st-strand{position:absolute;top:86%;height:1px;width:50%}
+.st-l{left:0;background:linear-gradient(90deg,transparent,var(--amber) 55%,var(--converge))}
+.st-r{right:0;background:linear-gradient(90deg,var(--converge),var(--cyan-hot) 45%,transparent)}
+.st-core{position:absolute;left:50%;top:86%;width:10px;height:10px;margin:-5px;border-radius:var(--radius-full);background:var(--converge);box-shadow:var(--bloom-core);animation:st-pulse 2.4s var(--if-ease) infinite}
+@keyframes st-pulse{50%{box-shadow:0 0 70px 24px color-mix(in oklab,var(--converge) 35%,transparent)}}
+
+
+/* Scene sections: full width, at least a screen tall, content centred vertically */
+.scenes{position:relative}
+.scene{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:var(--space-24) clamp(16px,6vw,112px);scroll-margin-top:0}
+.scene .bgrid{grid-template-columns:repeat(auto-fill,minmax(min(360px,100%),1fr))}
+.scene-end{padding:var(--space-16) clamp(16px,6vw,112px) 0}
+main .if-card{background:color-mix(in oklab,var(--card) 82%,transparent);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+@media(max-width:760px){.scene{min-height:auto;padding-block:var(--space-16)}.layer-core{display:none!important}}
 
 @media (prefers-reduced-motion: reduce){
   html{scroll-behavior:auto}
   .js .rv{opacity:1;transform:none}
   .sec-h::after{transform:scaleX(1);transition:none}
   .hero-flow{transform:none!important}.hero-copy{opacity:1!important}
-  .thread{display:none}
+  .st-bokeh,.st-scan,.st-core{animation:none}
   a.bcard:hover{transform:none}
 }
