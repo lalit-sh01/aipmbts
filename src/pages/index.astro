@@ -15,8 +15,8 @@ const flow = render('SignatureFlow', { animate: true, fit: 'cover', seed: 7 });
 <Base>
   <section class="if-field if-field-drift if-hero if-hero-center hero" aria-labelledby="hero-h">
     <Fragment set:html={depth} />
-    <div class="if-hero-flow" aria-hidden="true" set:html={flow} />
-    <div class="if-hero-copy">
+    <div class="if-hero-flow hero-flow" aria-hidden="true" set:html={flow} />
+    <div class="if-hero-copy hero-copy">
       <div class="if-fade-in" style="animation-delay:1300ms">
         <h1 class="display if-heading if-upper hero-h" id="hero-h">
           <span>Product manager by <span class="acc-day">day.</span></span>
@@ -33,24 +33,24 @@ const flow = render('SignatureFlow', { animate: true, fit: 'cover', seed: 7 });
   </section>
 
   <div class="wrap">
-    <section class="block first">
-      <SectionHead id="lessons" side="warm">Product lessons</SectionHead>
+    <section class="block first" id="lessons">
+      <SectionHead side="warm">Product lessons</SectionHead>
       <Lessons />
       <p class="ask">Stuck on something that isn't here? <a href={`mailto:${site.email}?subject=A%20lesson%20idea`}>Tell me about it</a>. It may become the next lesson.</p>
     </section>
 
-    <section class="block">
-      <SectionHead id="tech" side="cool">How the tech really works</SectionHead>
+    <section class="block" id="tech">
+      <SectionHead side="cool">How the tech really works</SectionHead>
       <TechPosts />
     </section>
 
-    <section class="block">
-      <SectionHead id="builds" side="cool">Late-night builds</SectionHead>
+    <section class="block" id="builds">
+      <SectionHead side="cool">Late-night builds</SectionHead>
       <Builds />
     </section>
 
-    <section class="block">
-      <SectionHead id="about">A bit about me</SectionHead>
+    <section class="block" id="about">
+      <SectionHead>A bit about me</SectionHead>
       <AboutMe />
     </section>
 

@@ -18,7 +18,8 @@
   "homepage": "https://github.com/lalit-sh01/aipmbts#readme",
   "dependencies": {
     "@astrojs/sitemap": "^3.7.4",
-    "astro": "^7.3.5"
+    "astro": "^7.3.5",
+    "lenis": "^1.3.26"
   },
   "devDependencies": {
     "react": "^18.3.1",
