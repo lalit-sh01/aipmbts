@@ -2,9 +2,10 @@
 import ThemeToggle from './ThemeToggle.astro';
 const path = Astro.url.pathname;
 const links = [
-  { href: '/journal/', label: 'Journal' },
-  { href: '/lab/', label: 'Lab' },
-  { href: '/about/', label: 'About' },
+  { href: '/lessons/', label: 'Product lessons', short: 'Lessons' },
+  { href: '/tech/', label: 'Tech', short: 'Tech' },
+  { href: '/builds/', label: 'Builds', short: 'Builds' },
+  { href: '/about/', label: 'About', short: 'About' },
 ];
 ---
 <header class="site-top">
@@ -15,7 +16,7 @@ const links = [
   </a>
   <nav class="site-nav" aria-label="Main">
     {links.map((l) => (
-      <a href={l.href} aria-current={path.startsWith(l.href) ? 'page' : undefined}>{l.label}</a>
+      <a href={l.href} aria-current={path.startsWith(l.href) ? 'page' : undefined}><span class="nl-full">{l.label}</span><span class="nl-short">{l.short}</span></a>
     ))}
   </nav>
   <ThemeToggle />

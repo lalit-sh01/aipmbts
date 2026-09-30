@@ -1,0 +1,26 @@
+---
+import LessonCard from './LessonCard.astro';
+import { lessons } from '../data/entries';
+const lenses = ['All', 'Technology', 'Leadership', 'Users'];
+---
+<div class="chips" role="group" aria-label="Filter lessons by side">
+  {lenses.map((l, i) => (
+    <button type="button" class="chip" data-lens={l} aria-pressed={i === 0 ? 'true' : 'false'}>{l}</button>
+  ))}
+</div>
+<div class="bgrid" data-lesson-grid>
+  {lessons.map((l) => <LessonCard item={l} />)}
+</div>
+<script is:inline>
+  document.querySelectorAll('.chips').forEach(function (group) {
+    var grid = group.nextElementSibling;
+    group.addEventListener('click', function (e) {
+      var btn = e.target.closest('.chip'); if (!btn) return;
+      var lens = btn.getAttribute('data-lens');
+      group.querySelectorAll('.chip').forEach(function (c) { c.setAttribute('aria-pressed', c === btn ? 'true' : 'false'); });
+      grid.querySelectorAll('[data-lenses]').forEach(function (card) {
+        card.hidden = !(lens === 'All' || card.getAttribute('data-lenses').split(' ').indexOf(lens) > -1);
+      });
+    });
+  });
+</script>

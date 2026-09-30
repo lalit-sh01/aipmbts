@@ -1,19 +1,16 @@
 ---
 import Base from '../layouts/Base.astro';
+import SectionHead from '../components/SectionHead.astro';
+import Lessons from '../components/Lessons.astro';
+import TechPosts from '../components/TechPosts.astro';
+import Builds from '../components/Builds.astro';
+import AboutMe from '../components/AboutMe.astro';
 import Subscribe from '../components/Subscribe.astro';
-import WorkCard from '../components/WorkCard.astro';
 import { render } from '../lib/iflow.mjs';
 import { site } from '../data/site';
-import { homeStats } from '../data/stats';
-import { work } from '../data/work';
 
 const depth = render('Depth', { drift: true, intensity: 1 });
 const flow = render('SignatureFlow', { animate: true, fit: 'cover', seed: 7 });
-const story = render('FlowDiagram', {
-  steps: ['Engineer', 'Data platforms', 'Product', 'AI products'],
-  highlight: 3,
-  label: 'Career path: engineer, then data platforms, then product, then AI products',
-});
 ---
 <Base>
   <section class="if-field if-field-drift if-hero if-hero-center hero" aria-labelledby="hero-h">
@@ -22,69 +19,40 @@ const story = render('FlowDiagram', {
     <div class="if-hero-copy">
       <div class="if-fade-in" style="animation-delay:1300ms">
         <h1 class="display if-heading if-upper hero-h" id="hero-h">
-          <span class="hl hl-day">Product manager by <span class="acc acc-day">day.</span></span>
-          <span class="hl hl-night">Builder by <span class="acc acc-night">night.</span></span>
+          <span>Product manager by <span class="acc-day">day.</span></span>
+          <span>Builder by <span class="acc-night">night.</span></span>
         </h1>
       </div>
-      <div class="if-fade-in if-hero-tag" style="animation-delay:1500ms">
-        <p class="if-eyebrow if-tone-cloud"><span>AI</span><span class="if-eyebrow-sep" aria-hidden="true">·</span><span>Product</span><span class="if-eyebrow-sep" aria-hidden="true">·</span><span>Bengaluru</span></p>
-      </div>
-      <p class="if-fade-in if-hero-lead hero-lead" style="animation-delay:1700ms">
-        Engineer turned AI product manager, across a global bank and an automaker. These are my notes from inside the work.
+      <p class="if-fade-in if-hero-lead hero-lead" style="animation-delay:1600ms">
+        My notes on how AI products really get built, from the technology to the people who lead and use them.
       </p>
-      <div class="if-fade-in hero-cta" style="animation-delay:1850ms">
-        <a class="btn btn-primary" href="#subscribe">Subscribe</a>
-        <a class="btn" href={site.resume} download>Download resume</a>
+      <div class="if-fade-in hero-cta" style="animation-delay:1800ms">
+        <a class="btn btn-primary" href="#lessons">Start reading</a>
       </div>
     </div>
   </section>
 
   <div class="wrap">
-    <section class="doors" aria-label="Two sides of the site">
-      <a class="if-card door door-day" href="/journal/">
-        <p class="if-eyebrow if-tone-warm">By day</p>
-        <h2 class="door-h">Journal</h2>
-        <p class="door-p">Notes from inside AI product work, written up as cases other product managers can use.</p>
-        <span class="door-go meta">Read the journal <span aria-hidden="true">→</span></span>
-      </a>
-      <a class="if-card door door-night" href="/lab/">
-        <p class="if-eyebrow if-tone-cool">By night</p>
-        <h2 class="door-h">Lab</h2>
-        <p class="door-p">Things I build outside work, from agent workflows to AI that runs on your own laptop.</p>
-        <span class="door-go meta">Open the lab <span aria-hidden="true">→</span></span>
-      </a>
+    <section class="block first">
+      <SectionHead id="lessons" side="warm">Product lessons</SectionHead>
+      <Lessons />
+      <p class="ask">Stuck on something that isn't here? <a href={`mailto:${site.email}?subject=A%20lesson%20idea`}>Tell me about it</a>. It may become the next lesson.</p>
     </section>
 
-    <section class="block" aria-labelledby="num-h">
-      <p class="if-eyebrow if-tone-mist">Numbers</p>
-      <h2 class="h2" id="num-h">Some results along the way</h2>
-      <ul class="stats">
-        {homeStats.map((s) => (
-          <li class="stat"><p class="stat-v">{s.value}</p><p class="stat-l">{s.label}</p></li>
-        ))}
-      </ul>
+    <section class="block">
+      <SectionHead id="tech" side="cool">How the tech really works</SectionHead>
+      <TechPosts />
     </section>
 
-    <section class="block" aria-labelledby="work-h">
-      <p class="if-eyebrow if-tone-mist">Selected work</p>
-      <h2 class="h2" id="work-h">What I have worked on</h2>
-      <div class="work-grid">
-        {work.map((w) => <WorkCard item={w} />)}
-      </div>
+    <section class="block">
+      <SectionHead id="builds" side="cool">Late-night builds</SectionHead>
+      <Builds />
     </section>
 
-    <section class="block story" aria-labelledby="story-h">
-      <p class="if-eyebrow if-tone-mist">Story</p>
-      <h2 class="h2" id="story-h">From engineer to AI product manager</h2>
-      <div class="story-flow" set:html={story} />
-      <p><a class="link-go meta" href="/about/">Read the full story <span aria-hidden="true">→</span></a></p>
+    <section class="block">
+      <SectionHead id="about">A bit about me</SectionHead>
+      <AboutMe />
     </section>
-
-    {site.photo && (
-      <figure class="portrait">
-        <img src={site.photo} alt="Lalit Shewani" loading="lazy" width="480" height="600" />
-      </figure>
-    )}
 
     <div class="block"><Subscribe /></div>
   </div>

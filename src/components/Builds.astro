@@ -1,0 +1,20 @@
+---
+import { builds } from '../data/lab';
+---
+<div class="bgrid bgrid-2">
+  {builds.map((b) => (
+    <article class="if-card bcard">
+      <div class="brow">
+        <p class="meta bmeta cool">{b.tags.join(' · ')}</p>
+        {b.status && <span class="status">{b.status}</span>}
+      </div>
+      <h3 class="bt">{b.name}</h3>
+      <dl class="pao">
+        <div><dt>Problem</dt><dd>{b.problem}</dd></div>
+        <div><dt>Approach</dt><dd>{b.approach}</dd></div>
+        {b.outcome && <div><dt>Outcome</dt><dd>{b.outcome}</dd></div>}
+      </dl>
+      {b.link && <a class="link-go meta" href={b.link}>See the code <span aria-hidden="true">→</span></a>}
+    </article>
+  ))}
+</div>

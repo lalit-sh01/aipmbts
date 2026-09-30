@@ -1,13 +1,9 @@
 ---
 import { site } from '../data/site';
-interface Props { heading?: string; }
-const { heading = 'Get new entries by email' } = Astro.props;
 const action = site.buttondown ? `https://buttondown.com/api/emails/embed-subscribe/${site.buttondown}` : '';
 ---
-<section class="subscribe if-card" id="subscribe" aria-labelledby="sub-h">
-  <p class="if-eyebrow if-tone-mist">Newsletter</p>
-  <h2 class="sub-h" id="sub-h">{heading}</h2>
-  <p class="sub-lead">One email when a new entry goes up. Nothing else.</p>
+<section class="subscribe if-card" id="subscribe" aria-label="Stay in touch">
+  <p class="sub-line">If something here helped, I can send you the next one. One email when something new goes up, nothing else.</p>
   {action ? (
     <form class="sub-form" action={action} method="post" target="_blank">
       <label class="sr-only" for="sub-email">Email address</label>
@@ -16,6 +12,6 @@ const action = site.buttondown ? `https://buttondown.com/api/emails/embed-subscr
       <button type="submit" class="btn btn-primary">Subscribe</button>
     </form>
   ) : (
-    <p class="sub-soon">Subscriptions open soon. Until then, <a href={site.linkedin}>follow along on LinkedIn</a>.</p>
+    <p class="sub-soon">Subscriptions open soon. Until then, <a href={site.linkedin}>LinkedIn</a> is the best place to follow along.</p>
   )}
 </section>

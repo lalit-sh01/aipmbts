@@ -1,5 +1,48 @@
-// Journal entries. Each Playbook post is a self-contained folder built by publish/build_blog.py;
-// copy it to public/journal/<slug>/ and add one line here. Newest first.
-export type Entry = { slug: string; title: string; date: string; summary: string; series?: string };
+// Product lessons: the AI Product Playbook cases, as cards.
+// When a post is published, copy its built folder to public/lessons/<slug>/ and set `published: true`.
+// Lenses show which sides a lesson touches. They were proposed, not confirmed; the author can change them.
+export type Lens = 'Technology' | 'Leadership' | 'Users';
+export type Lesson = {
+  slug: string;
+  entry: string;
+  stage: string;
+  title: string;
+  summary: string;
+  lenses: Lens[];
+  published: boolean;
+  date?: string;
+};
 
-export const entries: Entry[] = [];
+export const lessons: Lesson[] = [
+  {
+    slug: 'design-partner-changes-direction',
+    entry: 'Entry 001',
+    stage: 'Frame',
+    title: 'Your design partner keeps changing what they want',
+    summary: 'Most changes fall into five kinds of request, and each kind needs a different response.',
+    lenses: ['Leadership', 'Users'],
+    published: false,
+  },
+  {
+    slug: 'parser-fails-on-real-documents',
+    entry: 'Entry 002',
+    stage: 'Prove',
+    title: 'Your AI worked in the demo but struggles with real documents',
+    summary: 'Decide which documents you promise to read, how they are captured, and who checks the rest.',
+    lenses: ['Technology', 'Users'],
+    published: false,
+  },
+  {
+    slug: 'teams-go-around-the-platform',
+    entry: 'Entry 003',
+    stage: 'Launch',
+    title: 'Teams go around the AI platform you built',
+    summary: 'There are usually three reasons. It helps to find yours before reaching for a mandate.',
+    lenses: ['Technology', 'Leadership', 'Users'],
+    published: false,
+  },
+];
+
+// How the tech really works: technical posts. Empty until the first one is written.
+export type TechPost = { slug: string; title: string; summary: string; date?: string };
+export const techPosts: TechPost[] = [];

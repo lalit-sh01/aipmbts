@@ -1,0 +1,28 @@
+---
+import { site } from '../data/site';
+import { work } from '../data/work';
+---
+<div class="about">
+  {site.photo && <img class="portrait-img" src={site.photo} alt="Lalit Shewani" loading="lazy" width="280" height="350" />}
+  <div class="about-text">
+    <p>I'm Lalit. I started as a software engineer at JP Morgan Chase in 2018, moved into product a few years later, and now work on AI products at Ford in Bengaluru.</p>
+    <p class="muted">Along the way I helped run the Bengaluru PM community events at the bank and coached a few associate PMs.</p>
+  </div>
+</div>
+<div class="work-list">
+  {work.map((w, i) => (
+    <details class="wrow" open={i === 0}>
+      <summary><span><span class="meta wmeta">{w.org} · {w.when}</span><span class="wt">{w.title}</span></span><span class="pm" aria-hidden="true"></span></summary>
+      <dl class="pao pao-3">
+        <div><dt>Problem</dt><dd>{w.problem}</dd></div>
+        <div><dt>Approach</dt><dd>{w.approach}</dd></div>
+        <div><dt>Outcome</dt><dd>{w.outcome}</dd></div>
+      </dl>
+    </details>
+  ))}
+</div>
+<div class="about-cta">
+  <a class="btn" href={site.resume} download>Download resume</a>
+  <a class="btn" href={site.linkedin}>LinkedIn</a>
+  <a class="btn" href="/about/">Full story</a>
+</div>

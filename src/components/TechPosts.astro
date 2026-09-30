@@ -1,0 +1,17 @@
+---
+import { techPosts } from '../data/entries';
+---
+<div class="bgrid">
+  {techPosts.length ? techPosts.map((p) => (
+    <a class="if-card bcard" href={`/tech/${p.slug}/`}>
+      <h3 class="bt">{p.title}</h3>
+      <p class="bs">{p.summary}</p>
+    </a>
+  )) : (
+    <article class="if-card bcard bcard-soon">
+      <p class="meta bmeta cool">Coming soon</p>
+      <h3 class="bt">The first notes are on their way</h3>
+      <p class="bs">How the models, retrieval and agents under AI products actually work, written for product managers.</p>
+    </article>
+  )}
+</div>

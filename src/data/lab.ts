@@ -1,19 +1,26 @@
-// The Lab: things built at night. Descriptions come from the resume (Sep 2026).
-export type LabItem = { name: string; summary: string; detail: string; tags: string[]; link?: string };
+// Late-night builds. From the resume (Sep 2026). A field left out is not shown; nothing is filled in by guesswork.
+export type Build = {
+  name: string;
+  tags: string[];
+  status?: string;
+  problem: string;
+  approach: string;
+  outcome?: string;
+  link?: string;
+};
 
-export const lab: LabItem[] = [
+export const builds: Build[] = [
   {
     name: 'Compass.ai',
-    summary: 'A learning platform that personalises your roadmap and tries to stop skills from fading.',
-    detail:
-      'Roadmaps adapt as you learn. A multi-agent setup in LangGraph, with retrieval (RAG), generates the curriculum as you go.',
     tags: ['LangGraph', 'RAG', 'Agents'],
+    problem: 'Skills fade when you stop using them, and most learning roadmaps don’t adapt to you.',
+    approach: 'A multi-agent setup in LangGraph, with retrieval (RAG), that generates the curriculum as you learn.',
   },
   {
     name: 'Privacy-first file organiser',
-    summary: 'A macOS tool that organises your files with an AI model running on your own machine.',
-    detail:
-      'It runs locally through Ollama, so your files never leave the laptop. Batching and parallel processing gave it a 10x performance improvement.',
     tags: ['Ollama', 'Local AI', 'macOS'],
+    problem: 'Organising files with AI usually means sending them to someone else’s server.',
+    approach: 'An AI model that runs on your own Mac through Ollama, with batching and parallel processing.',
+    outcome: 'A 10x performance improvement, and your files never leave the laptop.',
   },
 ];

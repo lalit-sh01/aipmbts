@@ -17,16 +17,15 @@ npm run build    # output in dist/
 | What | File |
 |---|---|
 | Name, links, domain, newsletter username, photo | `src/data/site.ts` |
-| Every number on the site, with its source | `src/data/stats.ts` |
-| Selected work cards | `src/data/work.ts` |
-| Lab projects | `src/data/lab.ts` |
-| Journal entries | `src/data/entries.ts` |
+| Product lessons and tech posts | `src/data/entries.ts` |
+| Late-night builds | `src/data/lab.ts` |
+| Work history (A bit about me) | `src/data/work.ts` |
 | Design system tokens and components (copied unchanged) | `src/styles/tokens.css`, `src/styles/ds.css`, `src/ds/bundle.js` |
 | Site-level styles | `src/styles/site.css` |
 
 ## Rules
 
-- **No made-up numbers.** Every figure comes word for word from the resume or a published post, and `stats.ts` records the source.
+- **No made-up numbers.** Every figure comes word for word from the resume or a published post.
 - **Ford work stays abstract:** no product names and no figures.
 - **Copy follows the author's voice and style bible** (`AI-Product-Playbook/canon/11-author-voice.md` and `01-style-bible.md`).
 
@@ -34,11 +33,11 @@ npm run build    # output in dist/
 
 Warm (champagne) marks the product side, cool (electric blue) the tech side, in both themes. The theme switch is a plain light/dark toggle: Obsidian is the default, Paper the alternative. The choice is stored under `if-theme`, the key the Journal posts use.
 
-## Adding a Journal entry
+## Publishing a product lesson
 
 1. Build the post with the Playbook pipeline (`publish/build_blog.py`).
-2. Copy its `blog/` folder to `public/journal/<slug>/`.
-3. Add one line to `src/data/entries.ts`.
+2. Copy its `blog/` folder to `public/lessons/<slug>/`.
+3. In `src/data/entries.ts`, set that lesson's `published` to `true` (and its `date`).
 
 ## Deploy (Cloudflare Workers)
 

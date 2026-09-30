@@ -1,77 +1,53 @@
-// Selected work. Every claim comes from the resume (Sep 2026).
-// Ford work is abstracted at the author's request: no product names, no figures, no identifying detail.
-// Row labels are plain English (style bible 9.7). A row with no source is left out, never filled in.
-
-export type Work = {
-  org: string;
-  when: string;
-  status?: string;
-  title: string;
-  problem: string;
-  noticed?: string;
-  built: string;
-  now: string;
-};
+// Work history for "A bit about me". Every claim comes from the resume (Sep 2026).
+// Employers are named; Ford project details stay general (no product names, no figures), at the author's request.
+export type Work = { title: string; org: string; when: string; problem: string; approach: string; outcome: string };
 
 export const work: Work[] = [
   {
-    org: 'Automaker',
-    when: '2026',
-    status: 'In trial with engineers',
     title: 'Document intelligence for supplier quality reviews',
-    problem:
-      'Engineers spend hours checking each supplier approval submission by hand, and the documents arrive in many formats.',
-    noticed:
-      'The accuracy ceiling was reading the documents, not the model’s reasoning.',
-    built:
-      'I made extraction deterministic and gave every field a confidence score, so an engineer sees why a field failed instead of trusting a black box.',
-    now:
-      'The first version covers only the checks tied to the most costly quality failures, and engineers are now trying it on real submissions.',
-  },
-  {
-    org: 'Automaker',
+    org: 'Ford',
     when: '2026',
-    status: 'In pilot',
-    title: 'An agentic audit that keeps a person in charge',
-    problem:
-      'Auditing tooling spend meant cross-checking invoices, purchase orders and proofs of payment across several internal systems, so only part of the spend was covered.',
-    noticed:
-      'The output moves money, so the system should gather the evidence and the auditor should make the decision.',
-    built:
-      'An agent parses and cross-references the documents, and every audit still needs an auditor’s sign-off.',
-    now:
-      'Review effort went from hours to minutes per audit, and coverage is growing toward all of the spend.',
+    problem: 'Engineers spend hours checking each supplier submission by hand, and the documents arrive in many formats.',
+    approach: 'Found the accuracy limit was in parsing the documents, not in the model. Made extraction deterministic and gave each field a confidence score.',
+    outcome: 'Engineers can see why a field failed. It is now in trial with them.',
   },
   {
-    org: 'Automaker',
+    title: 'An audit agent with a human sign-off',
+    org: 'Ford',
     when: '2026',
-    status: 'Live',
-    title: 'A retrieval platform for teams outside engineering',
-    problem:
-      'Marketing, finance and HR teams had nothing like the AI tools that developers already use.',
-    built:
-      'A notebook and chat over the company’s internal documents and data, aimed deliberately at non-technical teams.',
-    now:
-      'People use it every month, and their feedback is moving the roadmap from chat toward generated documents and workflow automation.',
+    problem: 'Checking invoices, orders and proofs of payment across several systems took hours, so only part of the spend was covered.',
+    approach: 'An agent gathers and cross-checks the evidence. Because the output moves money, an auditor signs off on every audit.',
+    outcome: 'Review effort went from hours to minutes per audit. In pilot.',
   },
   {
-    org: 'Global bank',
-    when: '2023 – 2026',
+    title: 'AI tools for teams outside engineering',
+    org: 'Ford',
+    when: '2026',
+    problem: 'Marketing, finance and HR had nothing like the AI tools developers already use.',
+    approach: 'A notebook and chat over internal documents and data, built for non-technical teams.',
+    outcome: 'Live. Their feedback is moving the roadmap toward generated documents and workflow automation.',
+  },
+  {
     title: 'A self-service LLM assistant for data investigations',
-    problem:
-      'Analysts waited on central data teams whenever they needed to investigate a data question.',
-    built: 'A self-service LLM assistant that analysts use to run those investigations themselves.',
-    now:
-      'Resolution time went from hours to minutes for 50+ analysts, and the standing dependency on central data teams went away.',
+    org: 'JP Morgan Chase',
+    when: '2023 – 2026',
+    problem: 'Analysts waited on central data teams whenever they needed to investigate a data question.',
+    approach: 'An LLM assistant that analysts use to run those investigations themselves.',
+    outcome: 'Resolution time went from hours to minutes for 50+ analysts.',
   },
   {
-    org: 'Global bank',
+    title: 'Predictive detection of operational anomalies',
+    org: 'JP Morgan Chase',
     when: '2023 – 2026',
-    title: 'Ripple, an ML-driven ROI analytics platform',
-    problem: 'Teams needed a way to show the return on their technology work.',
-    built:
-      'I led a cross-functional team of 8 across data science, engineering and UX, and we shipped the platform in 6 months.',
-    now:
-      'It secured 3 pilot teams, I set the roadmap for firm-wide rollout, and it was a finalist for the firm-wide Innovation Award.',
+    problem: 'Daily operational anomalies ran above 1,000 and risked settlement failures.',
+    approach: 'Designed a predictive detection workflow to catch them earlier.',
+    outcome: 'Daily anomalies fell 80%, from 1,000+ to 200.',
   },
+];
+
+export const timeline = [
+  { when: '2026 –', role: 'Senior Product Manager, AI', org: 'Ford' },
+  { when: '2023 – 26', role: 'Technical Product Manager', org: 'JP Morgan Chase' },
+  { when: '2021 – 23', role: 'Associate Technical PM, Data Platform', org: 'JP Morgan Chase' },
+  { when: '2018 – 21', role: 'Software Engineer', org: 'JP Morgan Chase' },
 ];

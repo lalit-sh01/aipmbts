@@ -1,0 +1,15 @@
+---
+import type { Lesson } from '../data/entries';
+interface Props { item: Lesson }
+const { item } = Astro.props;
+const href = item.published ? `/lessons/${item.slug}/` : undefined;
+const Tag = href ? 'a' : 'article';
+---
+<Tag class="if-card bcard" href={href} data-lenses={item.lenses.join(' ')}>
+  <p class="meta bmeta">{item.entry} · {item.stage}{!item.published && <span class="soon"> · Coming soon</span>}</p>
+  <h3 class="bt">{item.title}</h3>
+  <p class="bs">{item.summary}</p>
+  <div class="tags">
+    {item.lenses.map((l) => <span class={`tag tag-${l.toLowerCase()}`}>{l}</span>)}
+  </div>
+</Tag>
