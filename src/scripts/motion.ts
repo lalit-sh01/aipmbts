@@ -7,7 +7,7 @@ const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const root = document.documentElement;
 
 // 1. Reveal on scroll, with a gentle stagger inside grids and lists.
-const revealSel = '.sec-h, .chips, .bcard, .ask, .about-text, .about-cta, .wrow, .subscribe, .page-head, .prose > *';
+const revealSel = '.sec-h, .chips, .bcard, .ask, .me-lead, .me-body, .subscribe, .page-head, .prose > *';
 const items = Array.from(document.querySelectorAll<HTMLElement>(revealSel));
 items.forEach((el) => {
   const siblings = el.parentElement ? Array.from(el.parentElement.children) : [];
