@@ -202,9 +202,10 @@ main,.site-foot,.site-top{position:relative;z-index:1}
 
 /* Scene sections: full width, at least a screen tall, content centred vertically */
 .scenes{position:relative}
-.scene{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:var(--space-24) clamp(16px,6vw,112px);scroll-margin-top:0}
+.scene{min-height:100vh;min-height:100svh;display:flex;flex-direction:column;justify-content:center;padding:var(--space-12) clamp(16px,6vw,112px);scroll-margin-top:0}
+.scene .sec-h{margin-bottom:var(--space-8)}
 .scene .bgrid{grid-template-columns:repeat(auto-fill,minmax(min(360px,100%),1fr))}
-.scene-end{padding:var(--space-16) clamp(16px,6vw,112px) 0}
+.scene-end{padding:var(--space-8) clamp(16px,6vw,112px) 0}
 main .if-card{background:color-mix(in oklab,var(--card) 82%,transparent);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
 @media(max-width:760px){.scene{min-height:auto;padding-block:var(--space-16)}.layer-core{display:none!important}}
 

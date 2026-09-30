@@ -33,13 +33,51 @@ if (!reduce) {
   lenis = new Lenis({ lerp: 0.09, smoothWheel: true });
   const raf = (t: number) => { lenis!.raf(t); requestAnimationFrame(raf); };
   requestAnimationFrame(raf);
+  // Sticky scrolling on wide screens. When scrolling stops between two scenes, the page glides on to
+  // the next scene in the direction you were scrolling. Small nudges are ignored, a scene taller than
+  // the screen can be read through freely, and the end of the page is always reachable.
+  const wide = window.matchMedia('(min-width: 1000px) and (pointer: fine)').matches;
+  const stops = Array.from(document.querySelectorAll<HTMLElement>('.hero, .scene'));
+  if (wide && stops.length > 1) {
+    let dir = 1, settled = window.scrollY, gliding = false, idle = 0;
+    const points = () => {
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      const ps: { y: number; tall: boolean; end: number }[] = stops.map((el) => {
+        const y = Math.max(0, Math.round(el.getBoundingClientRect().top + window.scrollY));
+        const end = y + el.offsetHeight - window.innerHeight;
+        return { y: Math.min(y, max), tall: end > y + 40, end: Math.min(end, max) };
+      });
+      ps.push({ y: max, tall: false, end: max });
+      return ps;
+    };
+    const glide = () => {
+      const y = window.scrollY;
+      if (Math.abs(y - settled) < 60) { settled = y; return; }
+      const ps = points();
+      // Reading inside a tall scene: leave it alone.
+      if (ps.some((p) => p.tall && y > p.y + 4 && y < p.end - 4)) { settled = y; return; }
+      const ys = ps.map((p) => p.y).sort((m, n) => m - n);
+      const target = dir > 0 ? ys.find((v) => v > y + 2) : [...ys].reverse().find((v) => v < y - 2);
+      if (target === undefined) { settled = y; return; }
+      gliding = true;
+      const done = () => { gliding = false; settled = window.scrollY; };
+      lenis!.scrollTo(target, { duration: 1.1, easing: (t: number) => 1 - Math.pow(1 - t, 4), lock: true, force: true, onComplete: done });
+      window.setTimeout(() => { if (gliding) done(); }, 1500);
+    };
+    window.addEventListener('wheel', (e) => { if (Math.abs(e.deltaY) > 0) dir = e.deltaY > 0 ? 1 : -1; }, { passive: true });
+    lenis.on('scroll', () => {
+      if (gliding) return;
+      clearTimeout(idle);
+      idle = window.setTimeout(glide, 160);
+    });
+  }
   document.querySelectorAll<HTMLAnchorElement>('a[href^="#"]').forEach((a) => {
     a.addEventListener('click', (ev) => {
       const id = a.getAttribute('href')!;
       const target = id.length > 1 ? document.querySelector<HTMLElement>(id) : null;
       if (!target) return;
       ev.preventDefault();
-      lenis!.scrollTo(target, { offset: -24, duration: 1.4 });
+      lenis!.scrollTo(target, { offset: 0, duration: 1.4 });
     });
   });
 }
