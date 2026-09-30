@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://aipmbts.pages.dev/sitemap-index.xml
+Sitemap: https://aipmbts.lalit-shewani01.workers.dev/sitemap-index.xml
