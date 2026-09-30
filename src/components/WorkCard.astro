@@ -1,0 +1,18 @@
+---
+import type { Work } from '../data/work';
+interface Props { item: Work }
+const { item } = Astro.props;
+const meta = [item.org, item.when, item.status].filter(Boolean);
+---
+<article class="if-card work-card">
+  <p class="if-eyebrow if-tone-mist">
+    {meta.map((m, i) => (<>{i > 0 && <span class="if-eyebrow-sep" aria-hidden="true">·</span>}<span>{m}</span></>))}
+  </p>
+  <h3 class="work-h">{item.title}</h3>
+  <dl class="work-rows">
+    <div><dt>The problem</dt><dd>{item.problem}</dd></div>
+    {item.noticed && <div><dt>What I noticed</dt><dd>{item.noticed}</dd></div>}
+    <div><dt>What we built</dt><dd>{item.built}</dd></div>
+    <div class="work-now"><dt>Where it is now</dt><dd>{item.now}</dd></div>
+  </dl>
+</article>

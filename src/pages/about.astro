@@ -1,0 +1,56 @@
+---
+import Base from '../layouts/Base.astro';
+import Subscribe from '../components/Subscribe.astro';
+import { render } from '../lib/iflow.mjs';
+import { site } from '../data/site';
+
+const path = render('FlowDiagram', {
+  steps: ['Engineer · 2018', 'Data platform PM · 2021', 'Technical PM · 2023', 'AI PM · 2026'],
+  highlight: 3,
+  label: 'Software engineer from 2018, data platform product manager from 2021, technical product manager from 2023, senior AI product manager from 2026',
+});
+---
+<Base title="About" description="How Lalit Shewani went from software engineer to senior AI product manager, across JP Morgan Chase and Ford.">
+  <div class="wrap page">
+    <header class="page-head">
+      <p class="if-eyebrow if-tone-mist">About</p>
+      <h1 class="h1">From engineer to AI product manager</h1>
+      <p class="lead">I have spent 8+ years across product and engineering, most of it inside large, regulated enterprises.</p>
+    </header>
+
+    <div class="story-flow wide" set:html={path} />
+
+    <div class="prose">
+      <h2 class="h3">Where it started</h2>
+      <p>I joined JP Morgan Chase in 2018 as a software engineer. I built Java services for trade processing and helped move old C++ systems to a modern Java architecture.</p>
+      <p>In 2021 I moved to the product side of a data platform. I spent those years replacing batch exports with stream-based delivery and getting five engineering pods to agree on how new data should come in.</p>
+
+      <h2 class="h3">Moving into AI</h2>
+      <p>From 2023 I was a technical product manager. I owned the roadmap for a trade-processing platform, and I shipped machine learning products: predictive anomaly detection and a self-service LLM assistant for analysts.</p>
+      <p>In June 2026 I joined Ford’s AI Advancement Center as a senior product manager. I work on document intelligence, an audit system where a person always signs off, and a retrieval platform for teams outside engineering.</p>
+
+      <h2 class="h3">What I pay attention to</h2>
+      <p>I trained as an engineer, so I stay close to evals and retrieval quality. The question I keep coming back to is simpler, though: does the person using it trust it enough to use it again tomorrow?</p>
+
+      <h2 class="h3">Outside the day job</h2>
+      <p>At JP Morgan Chase I founded the Bengaluru product management community events, ProdCon and Prodathon, and coached four associate PMs. I also wrote a newsletter on the technology behind investment banking.</p>
+      <p>This site is where I keep writing. The <a href="/journal/">Journal</a> holds notes from the work, and the <a href="/lab/">Lab</a> holds what I build at night.</p>
+
+      <h2 class="h3">Education</h2>
+      <ul class="plain">
+        <li>B.E. in Electronics and Electrical Engineering, minor in Finance, BITS Pilani, Goa Campus</li>
+        <li>Executive Certificate in Product Management, Indian School of Business</li>
+        <li>AWS Certified Cloud Practitioner</li>
+      </ul>
+      <p><a class="btn" href={site.resume} download>Download resume</a></p>
+    </div>
+
+    {site.photo && (
+      <figure class="portrait">
+        <img src={site.photo} alt="Lalit Shewani" loading="lazy" width="480" height="600" />
+      </figure>
+    )}
+
+    <div class="block"><Subscribe /></div>
+  </div>
+</Base>

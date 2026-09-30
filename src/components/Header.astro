@@ -1,0 +1,22 @@
+---
+import ThemeToggle from './ThemeToggle.astro';
+const path = Astro.url.pathname;
+const links = [
+  { href: '/journal/', label: 'Journal' },
+  { href: '/lab/', label: 'Lab' },
+  { href: '/about/', label: 'About' },
+];
+---
+<header class="site-top">
+  <a class="brand" href="/" aria-label="Lalit Shewani, home">
+    <img class="brand-mark" data-when="dark" src="/marks/signature-glyph.svg" alt="" width="40" height="12" />
+    <img class="brand-mark" data-when="light" src="/marks/signature-glyph-paper.svg" alt="" width="40" height="12" />
+    <span>Lalit Shewani</span>
+  </a>
+  <nav class="site-nav" aria-label="Main">
+    {links.map((l) => (
+      <a href={l.href} aria-current={path.startsWith(l.href) ? 'page' : undefined}>{l.label}</a>
+    ))}
+  </nav>
+  <ThemeToggle />
+</header>

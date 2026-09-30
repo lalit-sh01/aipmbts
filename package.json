@@ -1,0 +1,32 @@
+{
+  "name": "aipmbts",
+  "version": "1.0.0",
+  "description": "Lalit Shewani: Product manager by day. Builder by night.",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lalit-sh01/aipmbts.git"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lalit-sh01/aipmbts/issues"
+  },
+  "homepage": "https://github.com/lalit-sh01/aipmbts#readme",
+  "dependencies": {
+    "@astrojs/sitemap": "^3.7.4",
+    "astro": "^7.3.5"
+  },
+  "devDependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  }
+}
