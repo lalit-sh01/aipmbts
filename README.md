@@ -40,10 +40,12 @@ The theme switch is part of the story. Night (Obsidian, the default) brightens "
 2. Copy its `blog/` folder to `public/journal/<slug>/`.
 3. Add one line to `src/data/entries.ts`.
 
-## Deploy (Cloudflare Pages)
+## Deploy (Cloudflare Workers)
 
-1. Cloudflare dashboard → **Workers & Pages → Create → Pages → Connect to Git** → choose `lalit-sh01/aipmbts`.
-2. Framework preset **Astro**, build command `npm run build`, output directory `dist`.
-3. Add the environment variable `NODE_VERSION` = `22`.
+The repo is connected to a Cloudflare Worker named `aipmbts`, which serves `dist/` as static assets (`wrangler.jsonc`).
+
+- Build command: `npm run build`
+- Deploy command: `npx wrangler deploy`
+- Variable: `NODE_VERSION` = `22`
 
 Every push to `main` then redeploys. When the domain is bought, update `site.url` in `src/data/site.ts`, `site` in `astro.config.mjs` and `public/robots.txt`.
