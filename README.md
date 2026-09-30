@@ -30,9 +30,9 @@ npm run build    # output in dist/
 - **Ford work stays abstract:** no product names and no figures.
 - **Copy follows the author's voice and style bible** (`AI-Product-Playbook/canon/11-author-voice.md` and `01-style-bible.md`).
 
-## Day and night
+## Colour
 
-The theme switch is part of the story. Night (Obsidian, the default) brightens "Builder by night" and the Lab. Day (Paper) brightens "Product manager by day" and the Journal. The choice is stored under the same key the Journal posts use (`if-theme`), so it carries across.
+Warm (champagne) marks the product side, cool (electric blue) the tech side, in both themes. The theme switch is a plain light/dark toggle: Obsidian is the default, Paper the alternative. The choice is stored under `if-theme`, the key the Journal posts use.
 
 ## Adding a Journal entry
 
