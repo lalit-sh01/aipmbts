@@ -178,18 +178,23 @@ html.lenis,html.lenis body{height:auto}
 @media(min-width:761px){.hero .if-hero-copy.hero-copy{transform:translate3d(-50%,calc(var(--hero,0) * 90px),0)}}
 .hero-flow{transform:translate3d(0,calc(var(--hero,0) * -40px),0) scale(calc(1 + var(--hero,0) * .06));transform-origin:50% 64%;will-change:transform}
 
-/* A thread down the side fills with scroll progress, with a glowing tip */
-.thread{position:fixed;left:clamp(8px,1.6vw,28px);top:12vh;bottom:12vh;width:1px;background:var(--hairline);z-index:5;opacity:0;transition:opacity 700ms var(--if-ease);pointer-events:none}
-.thread.on{opacity:1}
-.thread-fill{position:absolute;left:0;top:0;width:1px;height:100%;background:linear-gradient(180deg,var(--amber),var(--converge-soft) 50%,var(--cyan-hot));transform:scaleY(var(--scroll,0));transform-origin:top}
-.thread-tip{position:absolute;left:-2px;width:5px;height:5px;border-radius:var(--radius-full);top:calc(var(--scroll,0) * 100%);background:var(--converge);box-shadow:var(--bloom-core)}
-@media(max-width:1180px){.thread{display:none}}
+/* The river: a subtle flow line in the side margins, drawn with scroll */
+.river{position:absolute;left:0;top:0;pointer-events:none;z-index:0;overflow:visible}
+main,.site-foot,.site-top{position:relative;z-index:1}
+.river-lead,.river-strand{fill:none;stroke:url(#riverGrad);stroke-dasharray:1;stroke-dashoffset:1;stroke-linecap:round}
+.river-lead{stroke-width:1;opacity:.5}
+.river-strand{stroke-width:.6;opacity:.12}
+.river-tip{fill:var(--converge);opacity:0;transition:opacity 500ms var(--if-ease)}
+.river-node{fill:var(--sky);opacity:0;transition:opacity 1200ms var(--if-ease)}
+.river-node.on{opacity:.35}
+.river-core{fill:var(--converge);opacity:0;transition:opacity 1400ms var(--if-ease)}
+.river-core.on{opacity:.7}
+[data-theme="light"] .river-lead{opacity:.45}[data-theme="light"] .river-strand{opacity:.14}
 
 @media (prefers-reduced-motion: reduce){
   html{scroll-behavior:auto}
   .js .rv{opacity:1;transform:none}
   .sec-h::after{transform:scaleX(1);transition:none}
   .hero-flow{transform:none!important}.hero-copy{opacity:1!important}
-  .thread{display:none}
   a.bcard:hover{transform:none}
 }
