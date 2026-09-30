@@ -50,6 +50,7 @@ const canonical = new URL(Astro.url.pathname, site.url).href;
     <Header />
     <main id="main"><slot /></main>
     <Footer />
+    <div class="thread" aria-hidden="true"><span class="thread-fill"></span><span class="thread-tip"></span></div>
     <TabBar />
     <script>import '../scripts/motion.ts';</script>
   </body>

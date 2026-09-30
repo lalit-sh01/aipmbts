@@ -54,22 +54,6 @@ img{max-width:100%;height:auto}
 .hero-cta{display:flex;flex-wrap:wrap;gap:var(--space-3);justify-content:center;margin-top:var(--space-6)}
 @media(max-width:760px){.hero{min-height:600px}.hero .if-hero-copy{padding-top:calc(var(--space-24) + var(--space-8))}.if-hero-flow{top:52%!important}}
 
-/* Lanes: on wide screens each section has a heading lane and a content lane, alternating sides,
-   so the river has open space to flow through (as in the approved sketch). */
-.lane{margin-top:var(--space-24);scroll-margin-top:var(--space-6)}
-.lane.first{margin-top:var(--space-16)}
-@media(min-width:1000px){
-  .lane{display:grid;grid-template-columns:5fr 7fr;gap:6vw;align-items:center;min-height:72vh;margin-top:0;padding-block:var(--space-16)}
-  .lane.r{grid-template-columns:7fr 5fr}
-  .lane.r .lane-side{order:2}
-  .lane.first{margin-top:0}
-  .lane-side .sec-h{font-size:clamp(32px,3.2vw,48px);line-height:1.1;margin-bottom:var(--space-6)}
-  .lane-side .sec-h::after{display:none}
-  .lane-side .chips{margin-bottom:0}
-  .lane .me{grid-template-columns:1fr;gap:var(--space-6)}
-  .lane .me-big{max-width:26ch}
-}
-
 /* Sections */
 .block{margin-top:var(--space-24)}
 .block.first{margin-top:var(--space-16)}
@@ -194,28 +178,18 @@ html.lenis,html.lenis body{height:auto}
 @media(min-width:761px){.hero .if-hero-copy.hero-copy{transform:translate3d(-50%,calc(var(--hero,0) * 90px),0)}}
 .hero-flow{transform:translate3d(0,calc(var(--hero,0) * -40px),0) scale(calc(1 + var(--hero,0) * .06));transform-origin:50% 64%;will-change:transform}
 
-/* The river: flowing strands that swing across the page behind the content, drawn with scroll.
-   Same shape as the approved sketch, at lower brightness. Cards are slightly translucent so it reads through them. */
-.river{position:absolute;left:0;top:0;pointer-events:none;z-index:0;overflow:visible}
-main,.site-foot,.site-top{position:relative;z-index:1}
-.hero{z-index:1}
-.river-lead,.river-strand{fill:none;stroke:url(#riverGrad);stroke-dasharray:1;stroke-dashoffset:1;stroke-linecap:round}
-.river-lead{stroke-width:1.4;opacity:.62}
-.river-strand{stroke-width:.7;opacity:.18}
-.river-tip{fill:var(--converge);opacity:0;transition:opacity 500ms var(--if-ease)}
-.river-tip.on{opacity:.9}
-.river-node{fill:var(--blue-bokeh);opacity:0;transition:opacity 1200ms var(--if-ease)}
-.river-node.hub{fill:var(--ice)}
-.river-node.on{opacity:.5}
-.river-core{fill:var(--converge);opacity:0;transition:opacity 1400ms var(--if-ease),r 1400ms var(--if-ease)}
-.river-core.on{opacity:.75}
-[data-theme="light"] .river-lead{opacity:.5}[data-theme="light"] .river-strand{opacity:.2}
-main .if-card{background:color-mix(in oklab,var(--card) 84%,transparent);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+/* A thread down the side fills with scroll progress, with a glowing tip */
+.thread{position:fixed;left:clamp(8px,1.6vw,28px);top:12vh;bottom:12vh;width:1px;background:var(--hairline);z-index:5;opacity:0;transition:opacity 700ms var(--if-ease);pointer-events:none}
+.thread.on{opacity:1}
+.thread-fill{position:absolute;left:0;top:0;width:1px;height:100%;background:linear-gradient(180deg,var(--amber),var(--converge-soft) 50%,var(--cyan-hot));transform:scaleY(var(--scroll,0));transform-origin:top}
+.thread-tip{position:absolute;left:-2px;width:5px;height:5px;border-radius:var(--radius-full);top:calc(var(--scroll,0) * 100%);background:var(--converge);box-shadow:var(--bloom-core)}
+@media(max-width:1180px){.thread{display:none}}
 
 @media (prefers-reduced-motion: reduce){
   html{scroll-behavior:auto}
   .js .rv{opacity:1;transform:none}
   .sec-h::after{transform:scaleX(1);transition:none}
   .hero-flow{transform:none!important}.hero-copy{opacity:1!important}
+  .thread{display:none}
   a.bcard:hover{transform:none}
 }

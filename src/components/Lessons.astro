@@ -1,29 +1,21 @@
 ---
 import LessonCard from './LessonCard.astro';
 import { lessons } from '../data/entries';
-interface Props { part?: 'chips' | 'grid' | 'both' }
-const { part = 'both' } = Astro.props;
 const lenses = ['All', 'Technology', 'Leadership', 'Users'];
 ---
-{part !== 'grid' && (
-  <div class="chips" role="group" aria-label="Filter lessons by side">
-    {lenses.map((l, i) => (
-      <button type="button" class="chip" data-lens={l} aria-pressed={i === 0 ? 'true' : 'false'}>{l}</button>
-    ))}
-  </div>
-)}
-{part !== 'chips' && (
-  <div class="bgrid" data-lesson-grid>
-    {lessons.map((l) => <LessonCard item={l} />)}
-  </div>
-)}
+<div class="chips" role="group" aria-label="Filter lessons by side">
+  {lenses.map((l, i) => (
+    <button type="button" class="chip" data-lens={l} aria-pressed={i === 0 ? 'true' : 'false'}>{l}</button>
+  ))}
+</div>
+<div class="bgrid" data-lesson-grid>
+  {lessons.map((l) => <LessonCard item={l} />)}
+</div>
 <script is:inline>
   document.querySelectorAll('.chips').forEach(function (group) {
-    if (group.dataset.bound) return; group.dataset.bound = '1';
+    var grid = group.nextElementSibling;
     group.addEventListener('click', function (e) {
-      var scope = group.closest('section') || document;
-      var grid = scope.querySelector('[data-lesson-grid]');
-      var btn = e.target.closest('.chip'); if (!btn || !grid) return;
+      var btn = e.target.closest('.chip'); if (!btn) return;
       var lens = btn.getAttribute('data-lens');
       group.querySelectorAll('.chip').forEach(function (c) { c.setAttribute('aria-pressed', c === btn ? 'true' : 'false'); });
       grid.querySelectorAll('[data-lenses]').forEach(function (card) {
