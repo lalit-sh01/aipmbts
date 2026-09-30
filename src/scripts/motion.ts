@@ -97,24 +97,26 @@ const weights: number[] = layers.map(() => 0);
 
 function updateStage() {
   if (!layers.length) return;
-  const vh = window.innerHeight, mid = vh / 2;
+  const vh = window.innerHeight, mid = vh * 0.5, win = vh * 0.32;
   const theme = root.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
   let tint = [0, 0, 0], sum = 0;
   layers.forEach((layer, i) => {
     const el = sceneEls[i];
     if (!el) return;
     const r = el.getBoundingClientRect();
-    const center = r.top + r.height / 2;
-    const reach = r.height / 2 + vh * 0.55;
-    const w = smooth(Math.max(0, Math.min(1, 1 - Math.abs(center - mid) / reach)));
-    const eased = Math.min(1, w * 1.6);
-    weights[i] = eased;
-    layer.style.opacity = eased.toFixed(3);
+    // A backdrop takes over as its section crosses the middle of the screen, and hands over to the
+    // next one inside a short window, so at most two ever overlap and only briefly.
+    const enter = smooth(Math.max(0, Math.min(1, (mid - r.top) / win + 0.5)));
+    const exit = smooth(Math.max(0, Math.min(1, (r.bottom - mid) / win + 0.5)));
+    const w = enter * exit;
+    weights[i] = w;
+    layer.style.opacity = w.toFixed(3);
     const t = TINTS[el.dataset.tint || ''];
-    if (t) { const c = t[theme]; tint = tint.map((v, k) => v + c[k] * eased); sum += eased; }
+    if (t) { const c = t[theme]; tint = tint.map((v, k) => v + c[k] * w); sum += w; }
   });
   const base = BASE[theme];
-  const mixed = sum > 0 ? tint.map((v, k) => v / sum * Math.min(1, sum) + base[k] * (1 - Math.min(1, sum))) : base;
+  const k = Math.min(1, sum);
+  const mixed = sum > 0 ? tint.map((v, j) => (v / sum) * k + base[j] * (1 - k)) : base;
   root.style.setProperty('--scene-bg', `rgb(${mixed.map((v) => Math.round(v)).join(',')})`);
 }
 updateStage();
@@ -162,3 +164,18 @@ if (net) {
   new MutationObserver(() => { readColors(); draw(); }).observe(root, { attributes: true, attributeFilter: ['data-theme'] });
   if (!reduce) requestAnimationFrame(loop);
 }
+
+// 6. The career path in "A bit about me" draws itself, warm to cool, when it comes into view.
+// The last node, "now", is the only element on the page that keeps a gentle pulse.
+document.querySelectorAll<HTMLElement>('.me-path').forEach((wrap) => {
+  const svg = wrap.querySelector('svg');
+  if (!svg) return;
+  svg.querySelectorAll<SVGPathElement>(':scope > path').forEach((p, i) => { p.setAttribute('pathLength', '1'); p.style.setProperty('--k', String(i)); });
+  const groups = svg.querySelectorAll<SVGGElement>(':scope > g');
+  groups.forEach((g, i) => { g.style.setProperty('--k', String(i)); if (i === groups.length - 1) g.classList.add('now'); });
+  if (reduce || !('IntersectionObserver' in window)) { wrap.classList.add('drawn'); return; }
+  const io = new IntersectionObserver((es) => es.forEach((e) => {
+    if (e.isIntersecting) { wrap.classList.add('drawn'); io.disconnect(); }
+  }), { threshold: 0.5 });
+  io.observe(wrap);
+});
