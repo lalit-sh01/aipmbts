@@ -33,25 +33,27 @@ const flow = render('SignatureFlow', { animate: true, fit: 'cover', seed: 7 });
   </section>
 
   <div class="wrap">
-    <section class="block first" id="lessons">
-      <SectionHead side="warm">Product lessons</SectionHead>
-      <Lessons />
-      <p class="ask">Stuck on something that isn't here? <a href={`mailto:${site.email}?subject=A%20lesson%20idea`}>Tell me about it</a>. It may become the next lesson.</p>
+    <section class="lane first" id="lessons">
+      <div class="lane-side"><SectionHead side="warm">Product lessons</SectionHead><Lessons part="chips" /></div>
+      <div class="lane-main">
+        <Lessons part="grid" />
+        <p class="ask">Stuck on something that isn't here? <a href={`mailto:${site.email}?subject=A%20lesson%20idea`}>Tell me about it</a>. It may become the next lesson.</p>
+      </div>
     </section>
 
-    <section class="block" id="tech">
-      <SectionHead side="cool">How the tech really works</SectionHead>
-      <TechPosts />
+    <section class="lane r" id="tech">
+      <div class="lane-side"><SectionHead side="cool">How the tech really works</SectionHead></div>
+      <div class="lane-main"><TechPosts /></div>
     </section>
 
-    <section class="block" id="builds">
-      <SectionHead side="cool">Late-night builds</SectionHead>
-      <Builds />
+    <section class="lane" id="builds">
+      <div class="lane-side"><SectionHead side="cool">Late-night builds</SectionHead></div>
+      <div class="lane-main"><Builds /></div>
     </section>
 
-    <section class="block" id="about">
-      <SectionHead>A bit about me</SectionHead>
-      <AboutMe />
+    <section class="lane r" id="about">
+      <div class="lane-side"><SectionHead>A bit about me</SectionHead></div>
+      <div class="lane-main"><AboutMe /></div>
     </section>
 
     <div class="block"><Subscribe /></div>
