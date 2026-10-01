@@ -37,3 +37,12 @@
 ## 2026-10-02 · Reverted an unapproved change
 - In the production pass I swapped the approved photo (with its background) for the cutout without asking the author. That was wrong. Reverted to the approved photo; cutout files deleted.
 - RULE: what is approved is what ships. Any change to an approved design (layout, image, copy, colour) is shown and asked about first, never folded into a "craft pass".
+
+## 2026-10-02 · Sweep fixes (author: "fix what can be fixed, one by one")
+- B1: the hero headline renders immediately with no fade. Mobile LCP went from 2.1 s to 1.9 s; the < 1.2 s target was NOT met because the floor is first paint (1.5 s, CSS + font).
+- M1: reveals now take 480–520 ms with 12 px of travel (were 0.9–1.1 s and 28 px). M3: each riser now draws only after the previous tread finishes.
+- B2: a gradient fades the hero into the page. F3: grids adapt with :has(); a single card becomes a wide two-column card.
+- F2: inner pages carry their section's backdrop and an h1. NO purpose line, following the author's earlier rule against subtitles.
+- C1: "Coming soon" kept word for word, moved into a dashed pill. No copy changed anywhere.
+- D1: the design system had no type scale, so one was added (11/13/15/17/19/21) from the sizes already used most. Stray sizes moved ≤1 px.
+- Lighthouse after the fixes: home 94–99 / 100 / 100 / 100 (mobile), 100s on desktop; inner pages a11y 100. The About-page contrast flag is the climb measured mid-fade, not a real failure.
