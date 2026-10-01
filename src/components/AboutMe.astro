@@ -1,17 +1,27 @@
 ---
 import { site } from '../data/site';
-import Trajectory from './Trajectory.astro';
+import Climb from './Climb.astro';
 ---
-<div class="me">
-  <p class="me-big"><span class="acc-day">I'm Lalit.</span> I work on AI products at Ford, and spent the eight years before that at JP Morgan Chase.</p>
-  <div class="me-body">
-    {site.photo && <img class="me-photo" src={site.photo} alt="Lalit Shewani, arms folded, looking to the side" loading="lazy" width="132" height="132" />}
-    <p>Today that means document intelligence, an audit agent that keeps a person in charge, and AI tools for teams outside engineering. At the bank I went from writing trade-processing code to leading data and machine learning products, and helped run the Bengaluru PM community events.</p>
-    <div class="about-cta">
-      <a class="btn" href={site.resume} download>Download resume</a>
-      <a class="btn" href={site.linkedin}>LinkedIn</a>
-      <a class="btn" href="/about/">Full story</a>
+<div class="me3">
+  <div class="me3-card me3-who">
+    <div class="me3-text">
+      <img class="me3-face-sm" src={site.photo} alt="" width="88" height="88" loading="lazy" />
+      <p class="me3-lead"><span class="acc-day">I'm Lalit.</span> I work on AI products at Ford, and spent the eight years before that at JP Morgan Chase.</p>
+      <p class="me3-body">Today that means document intelligence, an audit agent that keeps a person in charge, and AI tools for teams outside engineering. At the bank I went from writing trade-processing code to leading data and machine learning products, and helped run the Bengaluru PM community events.</p>
+    </div>
+    <figure class="me3-face">
+      <img src="/img/lalit-cut-560.webp" srcset="/img/lalit-cut-560.webp 560w, /img/lalit-cut-1100.webp 1100w" sizes="(min-width:1000px) 26vw, 1px" alt="Lalit Shewani, arms folded, looking to the side" width="560" height="602" loading="lazy" />
+    </figure>
+  </div>
+  <div class="me3-card me3-path">
+    <p class="me3-years"><b>8+</b><span>years across product and engineering</span></p>
+    <Climb />
+    <div class="me3-next">
+      <a class="act-row primary" href={site.resume} download>Download resume <span aria-hidden="true">↓</span></a>
+      <div class="me3-next-row">
+        <a class="act-row" href={site.linkedin}>LinkedIn <span aria-hidden="true">↗</span></a>
+        <a class="act-row" href="/about/">Full story <span aria-hidden="true">→</span></a>
+      </div>
     </div>
   </div>
 </div>
-<div class="me-stairs"><Trajectory /></div>

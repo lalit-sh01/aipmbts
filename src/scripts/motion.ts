@@ -165,16 +165,12 @@ if (net) {
   if (!reduce) requestAnimationFrame(loop);
 }
 
-// 6. The career staircase in "A bit about me" draws itself step by step when it comes into view.
+// 6. The career climb in "A bit about me" draws itself step by step when it comes into view.
 // The "now" point is the only element on the page that keeps a gentle pulse.
-document.querySelectorAll<HTMLElement>('.me-path').forEach((wrap) => {
-  const svg = wrap.querySelector('svg');
-  if (!svg) return;
-  svg.querySelectorAll<SVGPathElement>(':scope > path').forEach((p) => p.setAttribute('pathLength', '1'));
-  svg.querySelectorAll<SVGGElement>(':scope > g').forEach((g, i) => g.style.setProperty('--k', String(i)));
-  if (reduce || !('IntersectionObserver' in window)) { wrap.classList.add('drawn'); return; }
+document.querySelectorAll<HTMLElement>('.climb').forEach((el) => {
+  if (reduce || !('IntersectionObserver' in window)) { el.classList.add('drawn'); return; }
   const io = new IntersectionObserver((es) => es.forEach((e) => {
-    if (e.isIntersecting) { wrap.classList.add('drawn'); io.disconnect(); }
-  }), { threshold: 0.4 });
-  io.observe(wrap);
+    if (e.isIntersecting) { el.classList.add('drawn'); io.disconnect(); }
+  }), { threshold: 0.2 });
+  io.observe(el);
 });

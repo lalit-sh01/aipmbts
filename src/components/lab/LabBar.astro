@@ -1,9 +1,0 @@
----
-interface Props { current: string }
-const { current } = Astro.props;
-const items = [['a','A · Editorial split'],['b','B · Bento'],['c','C · Cinematic'],['now','Current (live)']];
----
-<nav class="lab-bar" aria-label="Design directions">
-  <span>UX lab · About section:</span>
-  {items.map(([k,l]) => <a href={k === 'now' ? '/#about' : `/ux-lab/about-${k}/`} aria-current={k === current ? 'page' : undefined}>{l}</a>)}
-</nav>

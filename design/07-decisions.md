@@ -25,3 +25,11 @@
 - The right column is one unit: today's face sits directly above today's role (the photo's edge aligns with the "now" step), and the next actions sit under it.
 - "8+ years" sits in the corner before 2018: the sum of the past, at the start of the climb.
 - Cut from the home page: the Community and Education cards. They answered no question at this point, and both already live on /about/ ("Full story").
+
+## 2026-10-02 · Production craft pass (promotion of B3)
+- Desktop photo: switched from the photo with its light grey background to the cutout on a cool glow. The grey rectangle was the brightest thing on the page and failed the squint test.
+- Radii now come from tokens (--radius-lg for cards, --radius-md for buttons) instead of the lab's hard-coded 28px and 18px.
+- Phone intro: no card around it, because the gutter already frames it. The face is an 88px square the lead wraps around.
+- Phone climb: replaced the indented bars with a vertical rail and coloured nodes, newest at the top. [PATTERN] This is the conventional mobile timeline (Jakob's Law); novelty is spent on the desktop staircase instead.
+- 1000–1279px: LinkedIn and Full story stack into one column so the labels never wrap.
+- Draw animation: each tread sweeps in, then the riser to the next, then the labels. The pulse on "now" starts after the climb finishes. Reduced motion shows everything at once.

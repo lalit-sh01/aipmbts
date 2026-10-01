@@ -1,4 +1,4 @@
-# UX lab: About section
-Run: `npm run build && npx astro preview`, then open /ux-lab/about-a/, /ux-lab/about-b/ and /ux-lab/about-c/.
-Files: src/pages/ux-lab/*, src/components/lab/*, src/styles/lab.css.
-To promote: move the chosen markup into src/components/AboutMe.astro, move its CSS block into site.css, then delete the lab routes.
+# UX lab: About section (closed)
+The three directions (A editorial split, B bento, C cinematic) are kept in git history at commit 275b0b6 (branch about-layout-v2).
+B3 was promoted into src/components/AboutMe.astro + src/components/Climb.astro; its styles are in site.css under "A bit about me".
+The lab routes were removed on promotion so they never deploy publicly.

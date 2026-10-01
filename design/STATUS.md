@@ -10,8 +10,9 @@ B3 (question-ordered bento) built: intro+face, climb, actions under "now". Await
 - [x] Three structurally different directions, built on the real stack: /ux-lab/about-a, -b, -c
 - [x] Author picked B, with a smaller photo and a bigger career line
 - [ ] Author approves revised B  ← current
-- [ ] Promote the pick into src/components/AboutMe.astro and the About page; remove the lab routes
-- [ ] Check at 390 / 1100 / 1440 / 1884, in both themes; push to main
+- [x] Promoted B3 into AboutMe.astro + Climb.astro; About page uses Climb; old Trajectory SVG and lab routes removed
+- [x] Checked at 320/390/1000/1100/1279/1280/1440/1884, both themes: no overflow, photo aligned to 'now', no overlaps
+- [ ] Author says push → merge to main  ← current
 
 ## Next action
 Get approval on revised B, then promote it into AboutMe.astro.
