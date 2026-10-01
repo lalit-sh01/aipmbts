@@ -1,22 +1,17 @@
 ---
 import { site } from '../data/site';
 import Trajectory from './Trajectory.astro';
-
 ---
 <div class="me">
-  <div class="me-lead">
-    <p class="me-big"><span class="acc-day">I'm Lalit.</span> I work on AI products at Ford, and spent the eight years before that at JP Morgan Chase.</p>
-  </div>
+  <p class="me-big"><span class="acc-day">I'm Lalit.</span> I work on AI products at Ford, and spent the eight years before that at JP Morgan Chase.</p>
   <div class="me-body">
-    {site.photo && <img class="me-photo" src={site.photo} srcset={`${site.photo} 480w, ${site.photoLarge} 960w`} sizes="(min-width:1000px) 240px, 132px" alt="Lalit Shewani, arms folded, looking to the side" loading="lazy" width="240" height="240" />}
+    {site.photo && <img class="me-photo" src={site.photo} alt="Lalit Shewani, arms folded, looking to the side" loading="lazy" width="132" height="132" />}
     <p>Today that means document intelligence, an audit agent that keeps a person in charge, and AI tools for teams outside engineering. At the bank I went from writing trade-processing code to leading data and machine learning products, and helped run the Bengaluru PM community events.</p>
+    <div class="about-cta">
+      <a class="btn" href={site.resume} download>Download resume</a>
+      <a class="btn" href={site.linkedin}>LinkedIn</a>
+      <a class="btn" href="/about/">Full story</a>
+    </div>
   </div>
 </div>
 <div class="me-stairs"><Trajectory /></div>
-<div class="me-cta-row">
-  <div class="about-cta">
-    <a class="btn" href={site.resume} download>Download resume</a>
-    <a class="btn" href={site.linkedin}>LinkedIn</a>
-    <a class="btn" href="/about/">Full story</a>
-  </div>
-</div>
