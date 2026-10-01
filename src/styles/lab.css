@@ -118,3 +118,10 @@
   .t-years b{font-size:48px}
   .t-years span{margin:0}
 }
+/* Self-review fixes (squint test + keyboard pass) */
+/* One emphasis channel: the intro is the loudest thing, so the resume action is no longer a solid white slab. */
+.act-row.primary{background:color-mix(in oklab,var(--electric-blue) 16%,transparent);color:var(--cloud);border-color:color-mix(in oklab,var(--electric-blue) 55%,transparent)}
+.act-row.primary:hover{background:color-mix(in oklab,var(--electric-blue) 24%,transparent)}
+.act-row:focus-visible{outline:2px solid var(--focus-ring);outline-offset:3px}
+/* The number supports the climb; it should not out-shout the headline. Plain ink, no gradient. */
+.t-years b{background:none;-webkit-background-clip:border-box;background-clip:border-box;color:var(--cloud);font-size:clamp(48px,4vw,72px)}
