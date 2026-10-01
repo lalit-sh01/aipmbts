@@ -47,6 +47,7 @@ img{max-width:100%;height:auto}
 .hero .if-hero-copy{top:24%!important}
 @media(min-width:761px){.hero .if-hero-flow{top:auto;bottom:0;height:auto;aspect-ratio:2048/768}.hero .if-hero-flow svg{display:block}}
 @media(min-width:1500px){.hero{min-height:52vw}}
+.hero-fade{position:absolute;left:0;right:0;bottom:0;height:clamp(120px,18%,220px);background:linear-gradient(to bottom,transparent,var(--scene-bg,var(--obsidian)));pointer-events:none}
 .hero-h{display:flex;flex-direction:column;gap:.08em;margin:0;font-size:clamp(34px,5.4vw,76px)!important}
 .acc-day{color:var(--champagne)}
 .acc-night{color:var(--electric-blue)}
@@ -62,6 +63,7 @@ img{max-width:100%;height:auto}
 .side-dot{width:10px;height:10px;border-radius:var(--radius-full);flex-shrink:0}
 .side-dot.warm{background:var(--champagne)}
 .side-dot.cool{background:var(--sky)}
+.side-dot.both{background:linear-gradient(90deg,var(--champagne) 50%,var(--sky) 50%)}
 
 /* Filter chips */
 .chips{display:flex;flex-wrap:wrap;gap:var(--space-2);margin-bottom:var(--space-6)}
@@ -72,9 +74,8 @@ img{max-width:100%;height:auto}
 /* Cards */
 .bgrid{display:grid;gap:var(--space-6);grid-template-columns:repeat(auto-fill,minmax(min(340px,100%),1fr))}
 .bgrid-2{grid-template-columns:repeat(auto-fill,minmax(min(440px,100%),1fr))}
-.bcard{text-decoration:none;min-height:260px;transition:border-color var(--if-flow-short) var(--if-ease),transform 700ms var(--if-ease)}
-a.bcard:hover{transform:translateY(-3px)}
-a.bcard:hover .bt{color:var(--electric-blue)}
+.bcard{text-decoration:none;min-height:260px;transition:border-color 160ms var(--if-ease),transform 160ms var(--if-ease)}
+@media(hover:hover) and (pointer:fine){a.bcard:hover{transform:translateY(-3px)}a.bcard:hover .bt{color:var(--electric-blue)}}
 .bcard-soon{border-style:dashed}
 .bmeta{margin:0;color:var(--mist)}
 .soon{color:var(--fog)}
@@ -270,6 +271,14 @@ main,.site-foot{position:relative;z-index:1}
 .scenes{position:relative}
 .scene{display:flex;flex-direction:column;justify-content:center;padding:var(--space-24) clamp(16px,6vw,112px)}
 .scene .bgrid{grid-template-columns:repeat(auto-fill,minmax(min(360px,100%),1fr))}
+/* F3: grids follow how many items they hold, so a row is never two-thirds empty */
+@media(min-width:761px){
+  .bgrid:has(>:only-child),.scene .bgrid:has(>:only-child){grid-template-columns:1fr}
+  .bgrid:has(>:nth-child(2):last-child),.scene .bgrid:has(>:nth-child(2):last-child){grid-template-columns:1fr 1fr}
+  .bgrid>.bcard:only-child{min-height:0;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);column-gap:var(--space-12);align-items:start}
+  .bgrid>.bcard:only-child>*{grid-column:1}
+  .bgrid>.bcard:only-child>p:not(:first-child),.bgrid>.bcard:only-child>.pao{grid-column:2;grid-row:1 / span 3}
+}
 .scene-end{padding:var(--space-16) clamp(16px,6vw,112px) 0}
 main .if-card{background:color-mix(in oklab,var(--card) 82%,transparent);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
 @media(max-width:760px){.scene{padding-block:var(--space-16)}}

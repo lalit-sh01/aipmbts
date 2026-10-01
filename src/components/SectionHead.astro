@@ -1,5 +1,5 @@
 ---
-interface Props { id?: string; side?: 'warm' | 'cool' | 'none'; }
+interface Props { id?: string; side?: 'warm' | 'cool' | 'both' | 'none'; }
 const { id, side = 'none' } = Astro.props;
 ---
 <h2 class="h2 sec-h" id={id}>{side !== 'none' && <span class={`side-dot ${side}`} aria-hidden="true"></span>}<slot /></h2>

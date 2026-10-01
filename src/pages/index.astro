@@ -16,6 +16,7 @@ const flow = render('SignatureFlow', { animate: true, fit: 'cover', seed: 7 });
 <Base>
   <section class="if-field if-field-drift if-hero if-hero-center hero" aria-labelledby="hero-h">
     <Fragment set:html={depth} />
+    <div class="hero-fade" aria-hidden="true"></div>
     <div class="if-hero-flow hero-flow" aria-hidden="true" set:html={flow} />
     <div class="if-hero-copy hero-copy">
       <div class="if-fade-in hero-in" style="animation-delay:0ms">
@@ -52,7 +53,7 @@ const flow = render('SignatureFlow', { animate: true, fit: 'cover', seed: 7 });
     </section>
 
     <section class="scene" id="about" data-tint="core">
-      <SectionHead>A bit about me</SectionHead>
+      <SectionHead side="both">A bit about me</SectionHead>
       <AboutMe />
     </section>
 
