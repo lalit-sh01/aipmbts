@@ -104,12 +104,16 @@ a.bcard:hover .bt{color:var(--electric-blue)}
 .me-path::-webkit-scrollbar{display:none}
 .me>*{min-width:0}
 .me-path-v{display:none}
+.me-stairs{margin-top:var(--space-12);max-width:1240px}
+.me-stairs .me-path{margin:0}
+.me-cta-row .about-cta{margin-top:var(--space-8)}
 @media(max-width:760px){.me-path-h{display:none}.me-path-v{display:block}.me-path-v svg{width:100%;max-width:340px}}
 .about-cta{display:flex;flex-wrap:wrap;gap:var(--space-3);margin-top:var(--space-6)}
 /* The career staircase draws itself step by step; labels arrive in turn; the only pulse is on "now". */
-.stair-role{font-family:var(--font-display);font-size:20px;letter-spacing:.2em;text-transform:uppercase}
+.stair-title{font-family:var(--font-display);font-weight:500;font-size:18px;letter-spacing:0}
+.stair-org{font-family:var(--font-sans);font-size:14px;fill:var(--mist)}
 .stair-year{font-family:var(--font-display);font-size:15px;letter-spacing:.18em;text-transform:uppercase;fill:var(--mist)}
-.me-path-v .stair-role{font-size:13px}.me-path-v .stair-year{font-size:11px}
+.me-path-v .stair-title{font-size:14px}.me-path-v .stair-org{font-size:12px}.me-path-v .stair-year{font-size:11px}
 .js .me-path path{stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 2200ms var(--if-ease) 150ms}
 .js .me-path g{opacity:0;transform:translateY(6px);transition:opacity 600ms var(--if-ease),transform 600ms var(--if-ease);transition-delay:calc(var(--k,0) * 520ms + 250ms)}
 .js .me-path.drawn path{stroke-dashoffset:0}

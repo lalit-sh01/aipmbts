@@ -1,14 +1,9 @@
 ---
 import Base from '../layouts/Base.astro';
 import Subscribe from '../components/Subscribe.astro';
-import { render } from '../lib/iflow.mjs';
+import Trajectory from '../components/Trajectory.astro';
 import { site } from '../data/site';
 
-const path = render('FlowDiagram', {
-  steps: ['Engineer · 2018', 'Data platform PM · 2021', 'Technical PM · 2023', 'AI PM · 2026'],
-  highlight: 3,
-  label: 'Software engineer from 2018, data platform product manager from 2021, technical product manager from 2023, senior AI product manager from 2026',
-});
 ---
 <Base title="About" description="How Lalit Shewani went from software engineer to senior AI product manager, across JP Morgan Chase and Ford.">
   <div class="wrap page">
@@ -17,7 +12,7 @@ const path = render('FlowDiagram', {
       <p class="lead">I have spent 8+ years across product and engineering, most of it inside large, regulated enterprises.</p>
     </header>
 
-    <div class="story-flow wide" set:html={path} />
+    <div class="story-flow wide"><Trajectory /></div>
 
     <div class="prose">
       <h2 class="h3">Where it started</h2>

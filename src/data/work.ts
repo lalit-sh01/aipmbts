@@ -46,8 +46,8 @@ export const work: Work[] = [
 ];
 
 export const timeline = [
-  { when: '2026 –', role: 'Senior Product Manager, AI', org: 'Ford' },
-  { when: '2023 – 26', role: 'Technical Product Manager', org: 'JP Morgan Chase' },
-  { when: '2021 – 23', role: 'Associate Technical PM, Data Platform', org: 'JP Morgan Chase' },
-  { when: '2018 – 21', role: 'Software Engineer', org: 'JP Morgan Chase' },
+  { when: '2026 –', role: 'Senior Product Manager, AI Advancement Center', org: 'Ford' },
+  { when: '2023 – 26', role: 'Technical Product Manager (AVP)', org: 'JP Morgan Chase' },
+  { when: '2021 – 23', role: 'Associate Technical Product Manager, Data Platform', org: 'JP Morgan Chase' },
+  { when: '2018 – 21', role: 'Software Development Engineer II', org: 'JP Morgan Chase' },
 ];
