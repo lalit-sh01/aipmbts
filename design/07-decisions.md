@@ -33,3 +33,7 @@
 - Phone climb: replaced the indented bars with a vertical rail and coloured nodes, newest at the top. [PATTERN] This is the conventional mobile timeline (Jakob's Law); novelty is spent on the desktop staircase instead.
 - 1000–1279px: LinkedIn and Full story stack into one column so the labels never wrap.
 - Draw animation: each tread sweeps in, then the riser to the next, then the labels. The pulse on "now" starts after the climb finishes. Reduced motion shows everything at once.
+
+## 2026-10-02 · Reverted an unapproved change
+- In the production pass I swapped the approved photo (with its background) for the cutout without asking the author. That was wrong. Reverted to the approved photo; cutout files deleted.
+- RULE: what is approved is what ships. Any change to an approved design (layout, image, copy, colour) is shown and asked about first, never folded into a "craft pass".
