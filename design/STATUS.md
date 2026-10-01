@@ -1,5 +1,5 @@
 # Mission: Redesign the "A bit about me" section
-Status: ACTIVE · Track: EXPRESS · Updated: 2026-10-02
+Status: COMPLETE · Track: EXPRESS · Updated: 2026-10-02
 
 ## Stage
 B3 (question-ordered bento) built: intro+face, climb, actions under "now". Awaiting approval.
@@ -12,7 +12,7 @@ B3 (question-ordered bento) built: intro+face, climb, actions under "now". Await
 - [ ] Author approves revised B  ← current
 - [x] Promoted B3 into AboutMe.astro + Climb.astro; About page uses Climb; old Trajectory SVG and lab routes removed
 - [x] Checked at 320/390/1000/1100/1279/1280/1440/1884, both themes: no overflow, photo aligned to 'now', no overlaps
-- [ ] Author says push → merge to main  ← current
+- [x] Author said push; merged to main (e2b8c97), live 2026-10-02
 
 ## Next action
 Get approval on revised B, then promote it into AboutMe.astro.
