@@ -1,0 +1,21 @@
+---
+// The career as a staircase built from real text (not SVG), so it stays crisp and fits any grid cell.
+// Titles exactly as on the resume. Each tread is one grid column, lifted one "rise" above the last.
+const steps = [
+  { year: '2018', title: 'Software Development Engineer II', org: 'JP Morgan Chase', c: 'var(--champagne)' },
+  { year: '2021', title: 'Associate Technical Product Manager, Data Platform', org: 'JP Morgan Chase', c: 'color-mix(in oklab, var(--champagne) 55%, var(--converge-soft))' },
+  { year: '2023', title: 'Technical Product Manager (AVP)', org: 'JP Morgan Chase', c: 'color-mix(in oklab, var(--converge-soft) 60%, var(--sky))' },
+  { year: '2026 · now', title: 'Senior Product Manager, AI Advancement Center', org: 'Ford', c: 'var(--electric-blue)' },
+];
+interface Props { class?: string }
+const { class: cls = '' } = Astro.props;
+---
+<ol class={`climb ${cls}`} aria-label="Career, from 2018 to now">
+  {steps.map((s, i) => (
+    <li class="climb-step" data-now={i === steps.length - 1 ? '' : undefined} style={`--i:${i};--c:${s.c}`}>
+      <span class="climb-year">{s.year}</span>
+      <span class="climb-title">{s.title}</span>
+      <span class="climb-org">{s.org}</span>
+    </li>
+  ))}
+</ol>

@@ -1,0 +1,25 @@
+---
+import Base from '../../layouts/Base.astro';
+import SectionHead from '../../components/SectionHead.astro';
+import Climb from '../../components/lab/Climb.astro';
+import LabBar from '../../components/lab/LabBar.astro';
+import { site } from '../../data/site';
+import '../../styles/lab.css';
+---
+<Base title="Lab A · Editorial split">
+  <div class="wrap lab-sec">
+    <LabBar current="a" />
+    <SectionHead id="about" side="none">A bit about me</SectionHead>
+    <div class="a-grid">
+      <div class="a-text">
+        <p class="a-lead"><span class="acc-day">I'm Lalit.</span> I work on AI products at Ford, and spent the eight years before that at JP Morgan Chase.</p>
+        <p class="a-body">Today that means document intelligence, an audit agent that keeps a person in charge, and AI tools for teams outside engineering. At the bank I went from writing trade-processing code to leading data and machine learning products, and helped run the Bengaluru PM community events.</p>
+        <div class="about-cta"><a class="btn" href={site.resume} download>Download resume</a><a class="btn" href={site.linkedin}>LinkedIn</a><a class="btn" href="/about/">Full story</a></div>
+        <Climb class="rv" />
+      </div>
+      <figure class="a-photo">
+        <img src="/img/lalit-960.webp" alt="Lalit Shewani, arms folded, looking to the side" width="960" height="960" />
+      </figure>
+    </div>
+  </div>
+</Base>
