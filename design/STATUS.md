@@ -11,7 +11,7 @@ Fixes live. Waiting on: the author's picks from P1–P8, plus content (F1)
 4. [x] Pushed live 2026-10-02 (16fde5d)
 5. Not done (needs the author): F1 publish a lesson + tech note; Compass.ai outcome; Buttondown; Cloudflare Web Analytics
 6. [x] P1–P8 built on branch `interactions` (P7 tested on the three Playbook posts)
-7. GATE: push interactions? Also publish the three posts (preview commit afd3079), or keep them back?  ← current
+7. [x] Author: "push all". Interactions + three posts live 2026-10-02 (34fc891)
 
 ## Standing rule
 What the author approves is what ships. No unapproved changes folded into "polish".
