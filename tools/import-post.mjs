@@ -12,6 +12,8 @@ let html = fs.readFileSync(path.join(src, 'index.html'), 'utf8');
 html = html.replace(/href="https:\/\/your-portfolio\.example"/g, 'href="/"')
   .replace(/<link rel="canonical" href="[^"]*">/, `<link rel="canonical" href="${site}/lessons/${slug}/">`)
   .replace(/<h1 class="bp-title"/, `<h1 class="bp-title" style="view-transition-name:t-${slug}"`)
+  // the site defaults to dark when no theme is saved; posts follow the same rule
+  .replace(/t=window\.matchMedia&&matchMedia\('\(prefers-color-scheme: light\)'\)\.matches\?'light':'dark'/, "t='dark'")
   .replace('</head>', '<link rel="stylesheet" href="/post-enhance.css">\n</head>')
   .replace('</body>', '<div class="read-progress" aria-hidden="true"><span></span></div>\n<script src="/post-enhance.js" defer></script>\n</body>');
 fs.writeFileSync(path.join(out, 'index.html'), html);
