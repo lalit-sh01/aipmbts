@@ -1,0 +1,6 @@
+/* Added to imported posts. P6: page transitions match the site. P7: reading progress. */
+@view-transition{navigation:auto}
+::view-transition-old(root),::view-transition-new(root){animation-duration:280ms}
+.read-progress{position:fixed;left:0;right:0;top:0;height:2px;z-index:50;pointer-events:none}
+.read-progress span{display:block;height:100%;width:100%;transform-origin:left;transform:scaleX(var(--read,0));background:linear-gradient(90deg,var(--champagne),var(--electric-blue))}
+@media (prefers-reduced-motion: reduce){@view-transition{navigation:none}}

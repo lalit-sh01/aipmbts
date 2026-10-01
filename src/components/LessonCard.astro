@@ -8,7 +8,7 @@ const Tag = href ? 'a' : 'article';
 ---
 <Tag class="if-card bcard" href={href} data-lenses={item.lenses.join(' ')}>
   <p class="meta bmeta"><span>{item.entry} · {item.stage}</span>{!item.published && <span class="soon">Coming soon</span>}</p>
-  <H class="bt">{item.title}</H>
+  <H class="bt" style={item.published ? `view-transition-name:t-${item.slug}` : undefined}>{item.title}</H>
   <p class="bs">{item.summary}</p>
   <div class="tags">
     {item.lenses.map((l) => <span class={`tag tag-${l.toLowerCase()}`}>{l}</span>)}

@@ -1,0 +1,13 @@
+// P7: reading progress for imported posts — how much of the article is left.
+(function () {
+  var bar = document.querySelector('.read-progress'); if (!bar) return;
+  var body = document.querySelector('main') || document.body, ticking = false;
+  function update() {
+    ticking = false;
+    var r = body.getBoundingClientRect(), vh = window.innerHeight;
+    var total = r.height - vh, read = Math.min(1, Math.max(0, -r.top / Math.max(1, total)));
+    bar.style.setProperty('--read', read.toFixed(4));
+  }
+  window.addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(update); } }, { passive: true });
+  window.addEventListener('resize', update); update();
+})();

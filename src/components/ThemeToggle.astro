@@ -11,13 +11,4 @@
     <span class="tt-label">Light</span>
   </span>
 </button>
-<script is:inline>
-  document.querySelectorAll('.theme-toggle').forEach(function (b) {
-    b.addEventListener('click', function () {
-      var root = document.documentElement;
-      var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-      root.setAttribute('data-theme', next);
-      try { localStorage.setItem('if-theme', next); } catch (e) {}
-    });
-  });
-</script>
+<!-- Click handling lives in src/scripts/interact.ts (P3: circle reveal). -->

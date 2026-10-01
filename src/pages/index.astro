@@ -35,6 +35,13 @@ const flow = render('SignatureFlow', { animate: true, fit: 'cover', seed: 7 });
   </section>
 
   <Stage />
+  <nav class="sec-index" aria-label="On this page">
+    <span class="si-track" aria-hidden="true"><span class="si-fill"></span></span>
+    <a href="#lessons" data-for="lessons"><span class="side-dot warm" aria-hidden="true"></span><span>Lessons</span></a>
+    <a href="#tech" data-for="tech"><span class="side-dot cool" aria-hidden="true"></span><span>Tech</span></a>
+    <a href="#builds" data-for="builds"><span class="side-dot cool" aria-hidden="true"></span><span>Builds</span></a>
+    <a href="#about" data-for="about"><span class="side-dot both" aria-hidden="true"></span><span>About</span></a>
+  </nav>
   <div class="scenes">
     <section class="scene" id="lessons" data-tint="warm">
       <SectionHead side="warm">Product lessons</SectionHead>
