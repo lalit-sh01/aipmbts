@@ -46,3 +46,9 @@
 - C1: "Coming soon" kept word for word, moved into a dashed pill. No copy changed anywhere.
 - D1: the design system had no type scale, so one was added (11/13/15/17/19/21) from the sizes already used most. Stray sizes moved ≤1 px.
 - Lighthouse after the fixes: home 94–99 / 100 / 100 / 100 (mobile), 100s on desktop; inner pages a11y 100. The About-page contrast flag is the climb measured mid-fade, not a real failure.
+
+## 2026-10-02 · Interactions P1–P8
+- The author asked why P1–P8 weren't built. I had held them for approval. He wanted them, so all eight are built.
+- P7 is tested on the three built Playbook posts (C-01, D-01, O-01), imported by tools/import-post.mjs. The import changes only the brand link (to /), the canonical URL, the theme default (dark, like the site) and the font paths; it adds the progress bar and page transition. The post content is untouched.
+- Publishing the posts sits in its own commit (afd3079), so it can be dropped if the author isn't ready.
+- Bugs caught and fixed: during the theme reveal the header ghosted (its own view-transition name) and a grey band showed (the background was mid-fade).

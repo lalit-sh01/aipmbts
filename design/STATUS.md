@@ -10,7 +10,8 @@ Fixes live. Waiting on: the author's picks from P1–P8, plus content (F1)
 3. [x] Built on branch sweep-fixes (7 commits): B1 M1 M3 M4 B2 F3 B5 M2 B3 B4 B6 B7 C1 F2 C2 D1 + heading order
 4. [x] Pushed live 2026-10-02 (16fde5d)
 5. Not done (needs the author): F1 publish a lesson + tech note; Compass.ai outcome; Buttondown; Cloudflare Web Analytics
-6. Not started (proposals P1–P8, need a yes)
+6. [x] P1–P8 built on branch `interactions` (P7 tested on the three Playbook posts)
+7. GATE: push interactions? Also publish the three posts (preview commit afd3079), or keep them back?  ← current
 
 ## Standing rule
 What the author approves is what ships. No unapproved changes folded into "polish".
