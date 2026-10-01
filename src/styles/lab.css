@@ -42,14 +42,15 @@
 /* ---------- B · Bento ---------- */
 .bento{display:grid;gap:var(--space-4)}
 @media(min-width:1000px){.bento{grid-template-columns:repeat(12,minmax(0,1fr));grid-template-areas:
-  "intro intro intro intro intro intro intro photo photo photo photo photo"
-  "path  path  path  path  path  path  path  photo photo photo photo photo"
-  "comm  comm  comm  comm  edu   edu   edu   edu   act   act   act   act"}}
+  "intro intro intro intro intro intro photo photo photo act   act   act"
+  "path  path  path  path  path  path  path  path  path  path  path  path"
+  "comm  comm  comm  comm  comm  comm  edu   edu   edu   edu   edu   edu"}}
 .tile{position:relative;border-radius:28px;border:1px solid var(--hairline);background:color-mix(in oklab,var(--card) 70%,transparent);padding:clamp(24px,2.4vw,40px);overflow:hidden;backdrop-filter:blur(8px)}
-.t-photo{margin:0;padding:0;min-height:420px}.t-path{display:flex;flex-direction:column;justify-content:flex-end}
-.t-act{display:flex;flex-direction:column;justify-content:space-between;gap:var(--space-6)}
+.t-photo{margin:0;padding:0;min-height:320px}
+.t-path{display:flex;flex-direction:column;justify-content:flex-end}
+.t-act{display:flex;flex-direction:column;justify-content:flex-end;gap:var(--space-6)}
 @media(min-width:1000px){.t-intro{grid-area:intro}.t-photo{grid-area:photo}.t-path{grid-area:path}.t-comm{grid-area:comm}.t-edu{grid-area:edu}.t-act{grid-area:act}}
-@media(max-width:999px){.t-photo{order:-1;min-height:0;aspect-ratio:4/4.4}}
+@media(max-width:999px){.t-photo{order:-1;min-height:0;aspect-ratio:4/4.4}.t-comm,.t-edu{order:2}}
 .t-label{font-family:var(--font-display);font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--mist);margin:0 0 var(--space-4)}
 .t-lead{margin:0;font-family:var(--font-display);font-weight:400;font-size:clamp(28px,2.7vw,44px);line-height:1.12;letter-spacing:-.015em;color:var(--cloud);max-width:20ch}
 .t-body{margin:var(--space-6) 0 0;font-size:17px;line-height:28px;color:var(--mist);max-width:58ch}
@@ -58,12 +59,15 @@
 .t-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:60% 25%}
 .t-photo::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 60%,rgba(8,8,10,.72))}
 .t-photo .cap{position:absolute;left:28px;right:28px;bottom:24px;z-index:1;color:#f4f1ea;font-family:var(--font-display)}
-.t-photo .cap b{display:block;font-weight:500;font-size:22px}
-.t-photo .cap span{font-size:14px;opacity:.85}
-.t-path .climb{--rise:32px;margin-top:var(--space-6)}
-.t-path .climb-step{padding-right:12px}.t-path .climb-title{font-size:15px}
-.t-act .btn-big{display:flex;justify-content:space-between;align-items:center;min-height:64px;padding:0 var(--space-6);border-radius:20px;background:var(--cloud);color:var(--obsidian);font-family:var(--font-display);font-weight:500;font-size:17px;text-decoration:none}
-.t-act .row{display:flex;gap:var(--space-3);flex-wrap:wrap}
+.t-photo .cap b{display:block;font-weight:500;font-size:19px}
+.t-photo .cap span{font-size:13px;opacity:.85}
+.t-path{flex-direction:row;align-items:flex-end;gap:var(--space-12)}
+.t-path .t-label{position:absolute;top:clamp(24px,2.4vw,40px);left:clamp(24px,2.4vw,40px)}
+.t-path .climb{--rise:58px;--lift:34px;flex:1;margin-top:var(--space-12)}
+.t-path .climb-step{min-height:170px;padding-right:28px}
+.t-path .climb-year{font-size:13px}
+.t-path .climb-title{font-size:clamp(17px,1.25vw,21px);max-width:20ch}
+.t-path .climb-org{font-size:14px}
 .tile.glow-warm{background:radial-gradient(120% 120% at 0% 0%,color-mix(in oklab,var(--champagne) 10%,transparent),transparent 60%),color-mix(in oklab,var(--card) 70%,transparent)}
 .tile.glow-cool{background:radial-gradient(120% 120% at 100% 100%,color-mix(in oklab,var(--electric-blue) 12%,transparent),transparent 60%),color-mix(in oklab,var(--card) 70%,transparent)}
 
@@ -90,3 +94,27 @@
 }
 
 @media(max-width:999px){.a-photo{order:-1;min-height:0;aspect-ratio:4/4.4}.a-text .climb{padding-top:var(--space-12)}}
+
+.act-rows{display:flex;flex-direction:column;gap:var(--space-3)}
+.act-row{display:flex;justify-content:space-between;align-items:center;min-height:60px;padding:0 var(--space-6);border-radius:18px;border:1px solid var(--hairline-strong);color:var(--cloud);text-decoration:none;font-family:var(--font-display);font-weight:500;font-size:16px;transition:border-color 300ms var(--if-ease),background-color 300ms var(--if-ease)}
+.act-row:hover{border-color:var(--cloud)}
+.act-row.primary{background:var(--cloud);color:var(--obsidian);border-color:transparent}
+.act-row span{transition:transform 300ms var(--if-ease)}.act-row:hover span{transform:translateX(3px)}
+.act-row.primary:hover span{transform:translateY(2px)}
+
+/* B: the career card's open corner carries the one number from the resume summary */
+.t-years{position:absolute;top:calc(clamp(24px,2.4vw,40px) + 40px);left:clamp(24px,2.4vw,40px);max-width:15ch;margin:0}
+.t-years b{display:block;font-family:var(--font-display);font-weight:400;font-size:clamp(56px,5vw,88px);line-height:1;letter-spacing:-.03em;background:linear-gradient(90deg,var(--champagne),var(--electric-blue));-webkit-background-clip:text;background-clip:text;color:transparent}
+.t-years span{display:block;margin-top:var(--space-2);font-size:15px;line-height:22px;color:var(--mist)}
+@media(max-width:999px){.t-years{position:static;margin:var(--space-2) 0 var(--space-8)}}
+/* B on phones: intro first, then photo; the career card stacks */
+@media(max-width:999px){
+  .bento .t-intro{order:0}.bento .t-photo{order:1}.bento .t-path{order:2}.bento .t-act{order:3}.bento .t-comm{order:4}.bento .t-edu{order:5}
+  .t-path{flex-direction:column;align-items:stretch;gap:0}
+  .t-path .t-label{position:static}
+  .t-path .climb{margin-top:0;--rise:0px}
+  .t-path .climb-step{min-height:0}
+  .t-years{display:flex;align-items:baseline;gap:var(--space-3);max-width:none}
+  .t-years b{font-size:48px}
+  .t-years span{margin:0}
+}

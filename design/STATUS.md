@@ -2,18 +2,19 @@
 Status: ACTIVE · Track: EXPRESS · Updated: 2026-10-02
 
 ## Stage
-Directions (×3) built in the ux-lab, awaiting the author's pick.
+Direction B (bento) picked and revised: smaller photo, full-width career card, actions beside the photo. Awaiting approval.
 
 ## Done
 - [x] Diagnosis of the live section (no grid, avatar-style photo, dead zones, staircase pointing at nothing)
 - [x] Portrait cut out of its background (public/img/lalit-cut-*.webp)
 - [x] Three structurally different directions, built on the real stack: /ux-lab/about-a, -b, -c
-- [ ] Author picks one direction  ← current
+- [x] Author picked B, with a smaller photo and a bigger career line
+- [ ] Author approves revised B  ← current
 - [ ] Promote the pick into src/components/AboutMe.astro and the About page; remove the lab routes
 - [ ] Check at 390 / 1100 / 1440 / 1884, in both themes; push to main
 
 ## Next action
-Get the author's pick (A, B or C, or a mix), then promote it.
+Get approval on revised B, then promote it into AboutMe.astro.
 
 ## Open gates
 Direction choice. Nothing goes to main until the author says "push".

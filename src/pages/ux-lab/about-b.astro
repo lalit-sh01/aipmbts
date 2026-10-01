@@ -17,10 +17,11 @@ import '../../styles/lab.css';
       </div>
       <figure class="tile t-photo">
         <img src="/img/lalit-960.webp" alt="Lalit Shewani, arms folded, looking to the side" width="960" height="960" />
-        <figcaption class="cap"><b>Lalit Shewani</b><span>Senior Product Manager, AI Advancement Center · Ford</span></figcaption>
+        <figcaption class="cap"><b>Lalit Shewani</b><span>Ford · AI Advancement Center</span></figcaption>
       </figure>
       <div class="tile t-path">
         <p class="t-label">The climb so far</p>
+        <p class="t-years"><b>8+</b><span>years across product and engineering</span></p>
         <Climb class="rv" />
       </div>
       <div class="tile t-comm">
@@ -32,8 +33,11 @@ import '../../styles/lab.css';
         <p class="t-text">B.E. Electronics and Electrical, BITS Pilani. <span>Executive Certificate in Product Management, ISB.</span></p>
       </div>
       <div class="tile t-act glow-cool">
-        <a class="btn-big" href={site.resume} download>Download resume <span aria-hidden="true">↓</span></a>
-        <div class="row"><a class="btn" href={site.linkedin}>LinkedIn</a><a class="btn" href="/about/">Full story</a></div>
+        <div class="act-rows">
+          <a class="act-row primary" href={site.resume} download>Download resume <span aria-hidden="true">↓</span></a>
+          <a class="act-row" href={site.linkedin}>LinkedIn <span aria-hidden="true">↗</span></a>
+          <a class="act-row" href="/about/">Full story <span aria-hidden="true">→</span></a>
+        </div>
       </div>
     </div>
   </div>
