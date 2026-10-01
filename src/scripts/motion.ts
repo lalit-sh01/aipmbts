@@ -39,7 +39,7 @@ if (!reduce) {
       const target = id.length > 1 ? document.querySelector<HTMLElement>(id) : null;
       if (!target) return;
       ev.preventDefault();
-      lenis!.scrollTo(target, { offset: -24, duration: 1.4 });
+      lenis!.scrollTo(target, { offset: -24, duration: 0.9 });
     });
   });
 }

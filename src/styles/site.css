@@ -154,12 +154,12 @@ a.bcard:hover .bt{color:var(--electric-blue)}
 .climb-title{margin-top:var(--space-3);font-family:var(--font-display);font-weight:500;font-size:clamp(16px,1.25vw,21px);line-height:1.3;color:var(--c);max-width:20ch;text-wrap:balance}
 .climb-org{font-size:14px;color:var(--mist)}
 .climb-step[data-now] .climb-year{color:var(--cloud)}
-.climb-pulse{width:8px;height:8px;border-radius:50%;background:var(--electric-blue);animation:climb-pulse 2.4s var(--if-ease) infinite 2.6s}
+.climb-pulse{width:8px;height:8px;border-radius:50%;background:var(--electric-blue);animation:climb-pulse 2.4s var(--if-ease) infinite 2.9s}
 @keyframes climb-pulse{0%{box-shadow:0 0 0 0 color-mix(in oklab,var(--electric-blue) 45%,transparent)}70%,100%{box-shadow:0 0 0 12px transparent}}
 /* Draw: treads sweep in, then the riser up to the next one; labels follow (motion.ts adds .drawn on view). */
-.js .climb .climb-step::before{transform:scaleX(0);transition:transform 640ms var(--if-ease) calc(var(--i) * 420ms + 200ms)}
-.js .climb .climb-step::after{transform:scaleY(0);transition:transform 260ms var(--if-ease) calc(var(--i) * 420ms + 60ms)}
-.js .climb .climb-step>*{opacity:0;transform:translateY(6px);transition:opacity 500ms var(--if-ease) calc(var(--i) * 420ms + 360ms),transform 500ms var(--if-ease) calc(var(--i) * 420ms + 360ms)}
+.js .climb .climb-step::before{transform:scaleX(0);transition:transform 520ms var(--if-ease) calc(var(--i) * 720ms + 200ms)}
+.js .climb .climb-step::after{transform:scaleY(0);transition:transform 200ms linear calc(var(--i) * 720ms)}
+.js .climb .climb-step>*{opacity:0;transform:translateY(6px);transition:opacity 420ms var(--if-ease) calc(var(--i) * 720ms + 380ms),transform 420ms var(--if-ease) calc(var(--i) * 720ms + 380ms)}
 .js .climb.drawn .climb-step::before{transform:none}.js .climb.drawn .climb-step::after{transform:none}
 .js .climb.drawn .climb-step>*{opacity:1;transform:none}
 /* Phones: a vertical rail, newest at the top. Nodes carry the colour; the rail runs between them. */
@@ -234,13 +234,15 @@ html.lenis,html.lenis body{height:auto}
 .lenis.lenis-stopped{overflow:hidden}
 
 /* Sections flow in as they arrive */
-.js .rv{opacity:0;transform:translateY(28px)}
-.js .rv.in{opacity:1;transform:none;transition:opacity 900ms var(--if-ease),transform 1100ms var(--if-ease);transition-delay:calc(var(--i,0) * 90ms)}
+.js .rv{opacity:0;transform:translateY(12px)}
+.js .rv.in{opacity:1;transform:none;transition:opacity 480ms var(--if-ease),transform 560ms var(--if-ease);transition-delay:calc(var(--i,0) * 70ms)}
 
 /* A warm-to-cool line draws under each heading */
 .sec-h::after{content:"";flex:1;height:1px;margin-left:var(--space-4);background:linear-gradient(90deg,var(--amber),var(--converge-soft) 50%,var(--signal-blue));opacity:.55;transform:scaleX(0);transform-origin:left;transition:transform 1600ms var(--if-ease) 200ms}
 .sec-h.in::after,html:not(.js) .sec-h::after{transform:scaleX(1)}
 
+/* B1: the words are there at once (they are the page's largest element); the flow draws behind them */
+.hero .hero-in{animation-duration:520ms}
 /* The hero drifts as you scroll away from it */
 .hero-copy{transform:translate3d(0,calc(var(--hero,0) * 90px),0);opacity:calc(1 - var(--hero,0) * 1.3);will-change:transform,opacity}
 @media(min-width:761px){.hero .if-hero-copy.hero-copy{transform:translate3d(-50%,calc(var(--hero,0) * 90px),0)}}

@@ -18,16 +18,16 @@ const flow = render('SignatureFlow', { animate: true, fit: 'cover', seed: 7 });
     <Fragment set:html={depth} />
     <div class="if-hero-flow hero-flow" aria-hidden="true" set:html={flow} />
     <div class="if-hero-copy hero-copy">
-      <div class="if-fade-in" style="animation-delay:1300ms">
+      <div class="if-fade-in hero-in" style="animation-delay:0ms">
         <h1 class="display if-heading if-upper hero-h" id="hero-h">
           <span>Product manager by <span class="acc-day">day.</span></span>
           <span>Builder by <span class="acc-night">night.</span></span>
         </h1>
       </div>
-      <p class="if-fade-in if-hero-lead hero-lead" style="animation-delay:1600ms">
+      <p class="if-fade-in if-hero-lead hero-lead hero-in" style="animation-delay:120ms">
         My notes on how AI products really get built, from the technology to the people who lead and use them.
       </p>
-      <div class="if-fade-in hero-cta" style="animation-delay:1800ms">
+      <div class="if-fade-in hero-cta hero-in" style="animation-delay:240ms">
         <a class="btn btn-primary" href="#lessons">Start reading</a>
       </div>
     </div>
