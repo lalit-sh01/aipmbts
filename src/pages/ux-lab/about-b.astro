@@ -5,38 +5,31 @@ import Climb from '../../components/lab/Climb.astro';
 import LabBar from '../../components/lab/LabBar.astro';
 import { site } from '../../data/site';
 import '../../styles/lab.css';
+// Logic: 1) Who is this?  -> intro + face, side by side (face looks left, into the words)
+//        2) How did he get here? -> the climb, full width; "now" lands under the photo
+//        3) What next? -> actions in the corner under "now"; "8+ years" in the corner before 2018
 ---
 <Base title="Lab B · Bento">
   <div class="wrap lab-sec">
     <LabBar current="b" />
     <SectionHead id="about" side="none">A bit about me</SectionHead>
-    <div class="bento">
-      <div class="tile t-intro glow-warm">
-        <p class="t-lead"><span class="acc-day">I'm Lalit.</span> I work on AI products at Ford, and spent the eight years before that at JP Morgan Chase.</p>
-        <p class="t-body">Today that means document intelligence, an audit agent that keeps a person in charge, and AI tools for teams outside engineering. At the bank I went from writing trade-processing code to leading data and machine learning products, and helped run the Bengaluru PM community events.</p>
+    <div class="b3">
+      <div class="tile b3-who glow-warm">
+        <div class="b3-text">
+          <p class="t-lead"><span class="acc-day">I'm Lalit.</span> I work on AI products at Ford, and spent the eight years before that at JP Morgan Chase.</p>
+          <p class="t-body">Today that means document intelligence, an audit agent that keeps a person in charge, and AI tools for teams outside engineering. At the bank I went from writing trade-processing code to leading data and machine learning products, and helped run the Bengaluru PM community events.</p>
+        </div>
+        <img class="b3-face" src="/img/lalit-960.webp" alt="Lalit Shewani, arms folded, looking to the side" width="960" height="960" />
       </div>
-      <figure class="tile t-photo">
-        <img src="/img/lalit-960.webp" alt="Lalit Shewani, arms folded, looking to the side" width="960" height="960" />
-        <figcaption class="cap"><b>Lalit Shewani</b><span>Ford · AI Advancement Center</span></figcaption>
-      </figure>
-      <div class="tile t-path">
-        <p class="t-label">The climb so far</p>
+      <div class="tile b3-path">
         <p class="t-years"><b>8+</b><span>years across product and engineering</span></p>
         <Climb class="rv" />
-      </div>
-      <div class="tile t-comm">
-        <p class="t-label">Community</p>
-        <p class="t-text">Founded ProdCon and Prodathon, the Bengaluru PM community events at JP Morgan Chase. <span>Coached four associate PMs along the way.</span></p>
-      </div>
-      <div class="tile t-edu">
-        <p class="t-label">Trained as an engineer</p>
-        <p class="t-text">B.E. Electronics and Electrical, BITS Pilani. <span>Executive Certificate in Product Management, ISB.</span></p>
-      </div>
-      <div class="tile t-act glow-cool">
-        <div class="act-rows">
+        <div class="b3-next">
           <a class="act-row primary" href={site.resume} download>Download resume <span aria-hidden="true">↓</span></a>
-          <a class="act-row" href={site.linkedin}>LinkedIn <span aria-hidden="true">↗</span></a>
-          <a class="act-row" href="/about/">Full story <span aria-hidden="true">→</span></a>
+          <div class="b3-next-row">
+            <a class="act-row" href={site.linkedin}>LinkedIn <span aria-hidden="true">↗</span></a>
+            <a class="act-row" href="/about/">Full story <span aria-hidden="true">→</span></a>
+          </div>
         </div>
       </div>
     </div>

@@ -18,3 +18,10 @@
 - Contrast: body, org and label text use --mist (#A6ADB7) on a near-black tile, about 8:1. [INFERENCE] Not measured with a tool.
 - State matrix for a static section: Empty, Loading, Error and Role states are not applicable (no data). Overflow: titles wrap to 2–3 lines at 1100px and to 2 lines on phones. Missing image: the alt text and the tile background show. Reveal: the career card is blank until it scrolls into view, which is acceptable because the observer fires on view.
 - No analytics on the site, so no metric can be measured yet. [ASSUMPTION] Success = resume downloads and clicks to LinkedIn. This needs Cloudflare Web Analytics or a Buttondown link to verify.
+
+## 2026-10-02 · B3: layout follows the visitor's questions
+- The author challenged B2: the photo sat between two unrelated cards, and the bottom cards had no job. Correct. The layout had been arranged to fill a grid, not to serve a sequence.
+- New rule: each element answers one question, in reading order. (1) Who is this? Intro and face, side by side; the face looks left into the words. (2) How did he get here? The climb, full width. (3) What next? The actions, in the corner under "now".
+- The right column is one unit: today's face sits directly above today's role (the photo's edge aligns with the "now" step), and the next actions sit under it.
+- "8+ years" sits in the corner before 2018: the sum of the past, at the start of the climb.
+- Cut from the home page: the Community and Education cards. They answered no question at this point, and both already live on /about/ ("Full story").

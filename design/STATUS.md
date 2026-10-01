@@ -2,7 +2,7 @@
 Status: ACTIVE · Track: EXPRESS · Updated: 2026-10-02
 
 ## Stage
-Direction B (bento) picked and revised: smaller photo, full-width career card, actions beside the photo. Awaiting approval.
+B3 (question-ordered bento) built: intro+face, climb, actions under "now". Awaiting approval.
 
 ## Done
 - [x] Diagnosis of the live section (no grid, avatar-style photo, dead zones, staircase pointing at nothing)
