@@ -32,7 +32,7 @@ const canonical = new URL(Astro.url.pathname, site.url).href;
     <meta name="theme-color" content="#070a0e" />
     <script type="application/ld+json" set:html={JSON.stringify({
       '@context': 'https://schema.org', '@type': 'Person', name: site.name,
-      jobTitle: 'Senior Product Manager, AI Advancement Center', url: site.url,
+      jobTitle: 'Senior Product Manager, AI Advancement Center', url: site.url, image: site.url.replace(/\/$/, '') + site.photoLarge,
       sameAs: [site.linkedin, site.github],
     })} />
     <!-- Obsidian (dark) is the default. The choice is shared with the lesson posts through the same storage key. -->

@@ -11,6 +11,6 @@ export const site = {
   resume: '/resume/Lalit-Shewani-Resume.pdf',
   // Buttondown username. Leave empty until the account exists; the form shows a "coming soon" state.
   buttondown: '',
-  // Set to a path under /public once the photo arrives, e.g. '/img/lalit.jpg'.
-  photo: '',
+  photo: '/img/lalit-480.webp',
+  photoLarge: '/img/lalit-960.webp',
 };

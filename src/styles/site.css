@@ -97,7 +97,9 @@ a.bcard:hover .bt{color:var(--electric-blue)}
 .me{display:grid;gap:var(--space-8);align-items:start}
 @media(min-width:1000px){.me{grid-template-columns:5fr 6fr;gap:var(--space-16)}}
 .me-lead{display:flex;flex-direction:column;gap:var(--space-6)}
-.me-photo{width:120px;height:120px;border-radius:var(--radius-full);object-fit:cover;border:1px solid var(--hairline-strong)}
+.me-body::after{content:'';display:block;clear:both}
+.me-photo{float:right;width:132px;height:132px;margin:4px 0 var(--space-4) var(--space-6);border-radius:var(--radius-md);object-fit:cover;border:1px solid var(--hairline-strong);box-shadow:0 0 0 6px color-mix(in oklab,var(--cloud) 3%,transparent)}
+@media(min-width:1000px){.me-photo{width:240px;height:240px;margin-left:var(--space-8)}}
 .me-big{margin:0;font-family:var(--font-display);font-weight:400;font-size:clamp(26px,2.6vw,36px);line-height:1.3;letter-spacing:-.01em;color:var(--cloud);max-width:22ch}
 .me-body p{margin:0;font-size:18px;line-height:30px;color:var(--mist);max-width:56ch}
 .me-path{margin:var(--space-8) 0 var(--space-2);overflow-x:auto;scrollbar-width:none}
