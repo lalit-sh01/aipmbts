@@ -31,7 +31,7 @@ npm run build    # output in dist/
 
 ## Scenes
 
-On the home page each section is a full-screen scene. Its backdrop sits on a fixed stage behind the page (`src/components/Stage.astro`): warm light and bokeh for Product lessons, a living network for Tech, the topology grid for Builds, and a convergence core for About. `src/scripts/motion.ts` cross-fades the backdrops and blends the page tint continuously with scroll, so scenes flow into each other.
+On the home page each section is a full-screen scene. Its backdrop sits on a fixed stage behind the page (`src/components/Stage.astro`): warm light and bokeh for Product lessons, a living network for Tech, the topology grid for Builds, and the hero's warm/cool field for About, so the page closes the way it opens. `src/scripts/motion.ts` hands each backdrop over as its section crosses the middle of the screen, with a short cross-fade, and blends the page tint. Scrolling is never taken over (no snapping). The career staircase in About draws itself step by step (`src/components/Trajectory.astro`).
 
 ## Colour
 
