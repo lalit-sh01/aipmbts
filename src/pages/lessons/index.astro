@@ -1,12 +1,14 @@
 ---
+import Stage from '../../components/Stage.astro';
 import Base from '../../layouts/Base.astro';
 import SectionHead from '../../components/SectionHead.astro';
 import Lessons from '../../components/Lessons.astro';
 import Subscribe from '../../components/Subscribe.astro';
 ---
 <Base title="Product lessons" description="Lalit Shewani's notes from AI product work: situations product managers run into, and a few places to start.">
-  <div class="wrap page">
-    <SectionHead side="warm">Product lessons</SectionHead>
+  <Stage />
+  <div class="wrap page scene-page" id="lessons" data-tint="warm">
+    <SectionHead level={1} side="warm">Product lessons</SectionHead>
     <Lessons />
     <div class="block"><Subscribe /></div>
   </div>

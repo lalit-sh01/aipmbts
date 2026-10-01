@@ -1,5 +1,6 @@
 ---
-interface Props { id?: string; side?: 'warm' | 'cool' | 'both' | 'none'; }
-const { id, side = 'none' } = Astro.props;
+interface Props { id?: string; side?: 'warm' | 'cool' | 'both' | 'none'; level?: 1 | 2; }
+const { id, side = 'none', level = 2 } = Astro.props;
+const Tag = level === 1 ? 'h1' : 'h2';
 ---
-<h2 class="h2 sec-h" id={id}>{side !== 'none' && <span class={`side-dot ${side}`} aria-hidden="true"></span>}<slot /></h2>
+<Tag class="h2 sec-h" id={id}>{side !== 'none' && <span class={`side-dot ${side}`} aria-hidden="true"></span>}<slot /></Tag>

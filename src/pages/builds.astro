@@ -1,11 +1,13 @@
 ---
+import Stage from '../components/Stage.astro';
 import Base from '../layouts/Base.astro';
 import SectionHead from '../components/SectionHead.astro';
 import Builds from '../components/Builds.astro';
 ---
 <Base title="Late-night builds" description="Things Lalit Shewani builds outside work: agent workflows, retrieval and AI that runs locally.">
-  <div class="wrap page">
-    <SectionHead side="cool">Late-night builds</SectionHead>
+  <Stage />
+  <div class="wrap page scene-page" id="builds" data-tint="grid">
+    <SectionHead level={1} side="cool">Late-night builds</SectionHead>
     <Builds />
   </div>
 </Base>

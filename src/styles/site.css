@@ -294,3 +294,12 @@ main .if-card{background:color-mix(in oklab,var(--card) 82%,transparent);-webkit
   .climb-pulse{animation:none}
   a.bcard:hover{transform:none}
 }
+
+/* F2: inner pages carry their section's backdrop and sit above the stage */
+.scene-page{position:relative;z-index:1;min-height:calc(100vh - 200px)}
+/* C2: the 404 offers the four ways back into the site */
+.ways{display:grid;gap:var(--space-4);margin-top:var(--space-12);grid-template-columns:repeat(auto-fill,minmax(min(260px,100%),1fr))}
+.way{display:flex;flex-direction:row;align-items:center;justify-content:flex-start;text-align:left;gap:var(--space-3);min-height:0;padding:var(--space-6)}
+.way .bt{margin:0;flex:1}
+.way-go{color:var(--mist);transition:transform 160ms var(--if-ease)}
+@media(hover:hover) and (pointer:fine){.way:hover .way-go{transform:translateX(3px);color:var(--cloud)}}

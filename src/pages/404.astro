@@ -1,11 +1,24 @@
 ---
 import Base from '../layouts/Base.astro';
+import Stage from '../components/Stage.astro';
+const ways = [
+  { href: '/lessons/', label: 'Product lessons', side: 'warm' },
+  { href: '/tech/', label: 'How the tech really works', side: 'cool' },
+  { href: '/builds/', label: 'Late-night builds', side: 'cool' },
+  { href: '/about/', label: 'A bit about me', side: 'both' },
+];
 ---
 <Base title="Page not found">
-  <div class="wrap page">
+  <Stage />
+  <div class="wrap page scene-page" id="about" data-tint="core">
     <header class="page-head">
       <h1 class="h1">This page isn’t here</h1>
       <p class="lead">The link may be old. The <a href="/">home page</a> has everything else.</p>
     </header>
+    <nav class="ways" aria-label="Sections">
+      {ways.map((w) => (
+        <a class="if-card bcard way" href={w.href}><span class={`side-dot ${w.side}`} aria-hidden="true"></span><span class="bt">{w.label}</span><span class="way-go" aria-hidden="true">→</span></a>
+      ))}
+    </nav>
   </div>
 </Base>
