@@ -1,5 +1,8 @@
 ---
 import { builds } from '../data/lab';
+interface Props { h?: 2 | 3 }
+const { h = 3 } = Astro.props;
+const H = `h${h}`;
 ---
 <div class="bgrid bgrid-2">
   {builds.map((b) => (
@@ -8,7 +11,7 @@ import { builds } from '../data/lab';
         <p class="meta bmeta cool">{b.tags.join(' · ')}</p>
         {b.status && <span class="status">{b.status}</span>}
       </div>
-      <h3 class="bt">{b.name}</h3>
+      <H class="bt">{b.name}</H>
       <dl class="pao">
         <div><dt>Problem</dt><dd>{b.problem}</dd></div>
         <div><dt>Approach</dt><dd>{b.approach}</dd></div>

@@ -1,13 +1,14 @@
 ---
 import type { Lesson } from '../data/entries';
-interface Props { item: Lesson }
-const { item } = Astro.props;
+interface Props { item: Lesson; h?: 2 | 3 }
+const { item, h = 3 } = Astro.props;
+const H = `h${h}`;
 const href = item.published ? `/lessons/${item.slug}/` : undefined;
 const Tag = href ? 'a' : 'article';
 ---
 <Tag class="if-card bcard" href={href} data-lenses={item.lenses.join(' ')}>
   <p class="meta bmeta"><span>{item.entry} · {item.stage}</span>{!item.published && <span class="soon">Coming soon</span>}</p>
-  <h3 class="bt">{item.title}</h3>
+  <H class="bt">{item.title}</H>
   <p class="bs">{item.summary}</p>
   <div class="tags">
     {item.lenses.map((l) => <span class={`tag tag-${l.toLowerCase()}`}>{l}</span>)}

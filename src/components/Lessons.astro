@@ -1,6 +1,8 @@
 ---
 import LessonCard from './LessonCard.astro';
 import { lessons } from '../data/entries';
+interface Props { h?: 2 | 3 }
+const { h = 3 } = Astro.props;
 const lenses = ['All', 'Technology', 'Leadership', 'Users'];
 ---
 <div class="chips" role="group" aria-label="Filter lessons by side">
@@ -9,7 +11,7 @@ const lenses = ['All', 'Technology', 'Leadership', 'Users'];
   ))}
 </div>
 <div class="bgrid" data-lesson-grid>
-  {lessons.map((l) => <LessonCard item={l} />)}
+  {lessons.map((l) => <LessonCard item={l} h={h} />)}
 </div>
 <script is:inline>
   document.querySelectorAll('.chips').forEach(function (group) {

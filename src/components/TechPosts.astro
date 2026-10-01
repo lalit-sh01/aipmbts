@@ -1,16 +1,19 @@
 ---
 import { techPosts } from '../data/entries';
+interface Props { h?: 2 | 3 }
+const { h = 3 } = Astro.props;
+const H = `h${h}`;
 ---
 <div class="bgrid">
   {techPosts.length ? techPosts.map((p) => (
     <a class="if-card bcard" href={`/tech/${p.slug}/`}>
-      <h3 class="bt">{p.title}</h3>
+      <H class="bt">{p.title}</H>
       <p class="bs">{p.summary}</p>
     </a>
   )) : (
     <article class="if-card bcard bcard-soon">
       <p class="meta bmeta cool">Coming soon</p>
-      <h3 class="bt">The first notes are on their way</h3>
+      <H class="bt">The first notes are on their way</H>
       <p class="bs">How the models, retrieval and agents under AI products actually work, written for product managers.</p>
     </article>
   )}
