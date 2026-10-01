@@ -21,7 +21,7 @@ export const lessons: Lesson[] = [
     title: 'Your design partner keeps changing what they want',
     summary: 'Most changes fall into five kinds of request, and each kind needs a different response.',
     lenses: ['Leadership', 'Users'],
-    published: false,
+    published: true,
   },
   {
     slug: 'parser-fails-on-real-documents',
@@ -30,7 +30,7 @@ export const lessons: Lesson[] = [
     title: 'Your AI worked in the demo but struggles with real documents',
     summary: 'Decide which documents you promise to read, how they are captured, and who checks the rest.',
     lenses: ['Technology', 'Users'],
-    published: false,
+    published: true,
   },
   {
     slug: 'teams-go-around-the-platform',
@@ -39,7 +39,7 @@ export const lessons: Lesson[] = [
     title: 'Teams go around the AI platform you built',
     summary: 'There are usually three reasons. It helps to find yours before reaching for a mandate.',
     lenses: ['Technology', 'Leadership', 'Users'],
-    published: false,
+    published: true,
   },
 ];
 
