@@ -1,0 +1,82 @@
+---
+// Career trajectory as a staircase: each role is a step up. Drawn step by step when it comes into view
+// (motion.ts, section 6). The only pulsing point is "now". Colours run warm to cool, as tokens,
+// so the Paper theme works too.
+const steps = [
+  { role: 'Engineer', year: '2018', color: 'var(--champagne)' },
+  { role: 'Data platforms', year: '2021', color: 'color-mix(in oklab, var(--champagne) 55%, var(--converge-soft))' },
+  { role: 'Product', year: '2023', color: 'color-mix(in oklab, var(--converge-soft) 60%, var(--sky))' },
+  { role: 'AI products', year: '2026 · now', color: 'var(--electric-blue)' },
+];
+const label = 'Career: engineer from 2018, data platforms from 2021, product from 2023, AI products from 2026';
+
+// Desktop: four treads rising left to right.
+const W = 1000, tread = 200, rise = 70, x0 = 40, y0 = 250, r = 14;
+const pts = steps.map((_, i) => ({ x: x0 + i * (tread + 40), y: y0 - i * rise }));
+let d = `M ${pts[0].x} ${pts[0].y}`;
+pts.forEach((p, i) => {
+  const xEnd = p.x + tread;
+  if (i < pts.length - 1) {
+    const n = pts[i + 1];
+    d += ` H ${xEnd + 40 - r} Q ${xEnd + 40} ${p.y} ${xEnd + 40} ${p.y - r} V ${n.y + r} Q ${xEnd + 40} ${n.y} ${xEnd + 40 + r} ${n.y}`;
+  } else {
+    d += ` H ${xEnd}`;
+  }
+});
+const last = pts[pts.length - 1];
+
+// Phone: the same staircase, compact, with labels to the right of each tread.
+const pt = 70, pr = 78, px0 = 16, py0 = 320;
+const ppts = steps.map((_, i) => ({ x: px0 + i * 36, y: py0 - i * pr }));
+let pd = `M ${ppts[0].x} ${ppts[0].y}`;
+ppts.forEach((p, i) => {
+  if (i < ppts.length - 1) {
+    const n = ppts[i + 1];
+    pd += ` H ${n.x - 10} Q ${n.x} ${p.y} ${n.x} ${p.y - 10} V ${n.y + 10} Q ${n.x} ${n.y} ${n.x + 10} ${n.y}`;
+  } else {
+    pd += ` H ${p.x + pt}`;
+  }
+});
+const plast = ppts[ppts.length - 1];
+---
+<div class="me-path me-path-h">
+  <svg viewBox={`0 0 ${W} 300`} role="img" aria-label={label}>
+    <defs>
+      <linearGradient id="stairGrad" gradientUnits="userSpaceOnUse" x1={x0} y1="0" x2={W - 40} y2="0">
+        <stop offset="0" style="stop-color:var(--champagne)" />
+        <stop offset="0.5" style="stop-color:var(--converge-soft)" />
+        <stop offset="1" style="stop-color:var(--cyan-hot)" />
+      </linearGradient>
+    </defs>
+    <path d={d} fill="none" stroke="url(#stairGrad)" stroke-width="2" stroke-linecap="round" />
+    {steps.map((s, i) => (
+      <g class={i === steps.length - 1 ? 'stair-now' : undefined}>
+        {i === steps.length - 1 && <circle class="now-ring" cx={last.x + tread} cy={last.y} r="14" style={`fill:${s.color}`} />}
+        {i === steps.length - 1 && <circle cx={last.x + tread} cy={last.y} r="5" style={`fill:${s.color}`} />}
+        <text class="stair-year" x={pts[i].x + (i ? 22 : 4)} y={pts[i].y - 18}>{s.year}</text>
+        <text class="stair-role" x={pts[i].x + (i ? 22 : 4)} y={pts[i].y + 36} style={`fill:${s.color}`}>{s.role}</text>
+      </g>
+    ))}
+  </svg>
+</div>
+
+<div class="me-path me-path-v">
+  <svg viewBox="0 0 340 350" role="img" aria-label={label}>
+    <defs>
+      <linearGradient id="stairGradV" gradientUnits="userSpaceOnUse" x1="0" y1={py0} x2="0" y2={plast.y}>
+        <stop offset="0" style="stop-color:var(--champagne)" />
+        <stop offset="0.5" style="stop-color:var(--converge-soft)" />
+        <stop offset="1" style="stop-color:var(--cyan-hot)" />
+      </linearGradient>
+    </defs>
+    <path d={pd} fill="none" stroke="url(#stairGradV)" stroke-width="2" stroke-linecap="round" />
+    {steps.map((s, i) => (
+      <g class={i === steps.length - 1 ? 'stair-now' : undefined}>
+        {i === steps.length - 1 && <circle class="now-ring" cx={plast.x + pt} cy={plast.y} r="12" style={`fill:${s.color}`} />}
+        {i === steps.length - 1 && <circle cx={plast.x + pt} cy={plast.y} r="4.5" style={`fill:${s.color}`} />}
+        <text class="stair-role" x={ppts[i].x + (i === steps.length - 1 ? 0 : 54)} y={ppts[i].y - 26} style={`fill:${s.color}`}>{s.role}</text>
+        <text class="stair-year" x={ppts[i].x + (i === steps.length - 1 ? 0 : 54)} y={ppts[i].y - 10}>{s.year}</text>
+      </g>
+    ))}
+  </svg>
+</div>

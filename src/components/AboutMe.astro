@@ -1,11 +1,7 @@
 ---
 import { site } from '../data/site';
-import { render } from '../lib/iflow.mjs';
+import Trajectory from './Trajectory.astro';
 
-const steps = ['Engineer · 2018', 'Data platforms · 2021', 'Product · 2023', 'AI products · 2026'];
-const label = 'Engineer from 2018, data platforms from 2021, product from 2023, AI products from 2026';
-const path = render('FlowDiagram', { steps, highlight: 3, label });
-const pathV = render('FlowDiagram', { steps, highlight: 3, label, direction: 'vertical', width: 260 });
 ---
 <div class="me">
   <div class="me-lead">
@@ -14,8 +10,7 @@ const pathV = render('FlowDiagram', { steps, highlight: 3, label, direction: 've
   </div>
   <div class="me-body">
     <p>Today that means document intelligence, an audit agent that keeps a person in charge, and AI tools for teams outside engineering. At the bank I went from writing trade-processing code to leading data and machine learning products, and helped run the Bengaluru PM community events.</p>
-    <div class="me-path me-path-h" set:html={path} />
-    <div class="me-path me-path-v" set:html={pathV} />
+    <Trajectory />
     <div class="about-cta">
       <a class="btn" href={site.resume} download>Download resume</a>
       <a class="btn" href={site.linkedin}>LinkedIn</a>
