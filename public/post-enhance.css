@@ -1,6 +1,24 @@
-/* Added to imported posts. P6: page transitions match the site. P7: reading progress. */
+/* Added to imported posts by tools/import-post.mjs. Layout only: post content is never changed. */
+
+/* Width: the post uses the site's full content width (was an 880px column).
+   Running text keeps a comfortable reading measure; card grids use the extra width. */
+.bp-top,.bp-wrap{max-width:1240px}
+.bp-challenge,.bp-intro,.bp-why{max-width:72ch}
+.bp-applies{max-width:72ch}
+@media(min-width:1100px){
+  .bp-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .bp-opts>.bp-card:last-child:nth-child(odd){grid-column:auto}
+  .bp-grid>.bp-card:only-child{grid-column:1/-1}
+}
+
+/* P7: reading progress — 4px, with a soft glow and a faint track so it reads in both themes */
+.read-progress{position:fixed;left:0;right:0;top:0;height:4px;z-index:50;pointer-events:none;
+  background:color-mix(in oklab,var(--cloud) 8%,transparent)}
+.read-progress span{display:block;height:100%;width:100%;transform-origin:left;transform:scaleX(var(--read,0));
+  background:linear-gradient(90deg,var(--champagne),var(--electric-blue));
+  box-shadow:0 0 12px color-mix(in oklab,var(--electric-blue) 55%,transparent);border-radius:0 2px 2px 0}
+
+/* P6: page transitions match the site */
 @view-transition{navigation:auto}
 ::view-transition-old(root),::view-transition-new(root){animation-duration:280ms}
-.read-progress{position:fixed;left:0;right:0;top:0;height:2px;z-index:50;pointer-events:none}
-.read-progress span{display:block;height:100%;width:100%;transform-origin:left;transform:scaleX(var(--read,0));background:linear-gradient(90deg,var(--champagne),var(--electric-blue))}
 @media (prefers-reduced-motion: reduce){@view-transition{navigation:none}}
