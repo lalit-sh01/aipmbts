@@ -11,6 +11,8 @@ export const site = {
   resume: '/resume/Lalit-Shewani-Resume.pdf',
   // Buttondown username. Leave empty until the account exists; the form shows a "coming soon" state.
   buttondown: 'lalitshewani',
+  // Cloudflare Web Analytics (cookieless). Added to every page by Base.astro and to posts by tools/import-post.mjs.
+  cfAnalytics: '9e9ecaa39c354e1d87cd2e6ba73bf95c',
   photo: '/img/lalit-480.webp',
   photoLarge: '/img/lalit-960.webp',
 };

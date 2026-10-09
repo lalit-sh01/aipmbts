@@ -15,6 +15,6 @@ html = html.replace(/href="https:\/\/your-portfolio\.example"/g, 'href="/"')
   // the site defaults to dark when no theme is saved; posts follow the same rule
   .replace(/t=window\.matchMedia&&matchMedia\('\(prefers-color-scheme: light\)'\)\.matches\?'light':'dark'/, "t='dark'")
   .replace('</head>', '<link rel="stylesheet" href="/post-enhance.css">\n</head>')
-  .replace('</body>', '<div class="read-progress" aria-hidden="true"><span></span></div>\n<script src="/post-enhance.js" defer></script>\n</body>');
+  .replace('</body>', '<div class="read-progress" aria-hidden="true"><span></span></div>\n<script src="/post-enhance.js" defer></script>\n<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "9e9ecaa39c354e1d87cd2e6ba73bf95c"}'></script><!-- End Cloudflare Web Analytics -->\n</body>');
 fs.writeFileSync(path.join(out, 'index.html'), html);
 console.log('imported', slug, '→', out);

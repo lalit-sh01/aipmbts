@@ -52,5 +52,6 @@ const canonical = new URL(Astro.url.pathname, site.url).href;
     <Footer />
     <TabBar />
     <script>import '../scripts/motion.ts'; import '../scripts/interact.ts';</script>
+      {site.cfAnalytics && <script is:inline type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon={JSON.stringify({ token: site.cfAnalytics })}></script>}
   </body>
 </html>
