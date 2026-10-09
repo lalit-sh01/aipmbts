@@ -44,5 +44,6 @@ export const lessons: Lesson[] = [
 ];
 
 // How the tech really works: technical posts. Empty until the first one is written.
+// Tech notes: import with `node tools/import-post.mjs <blog folder> <slug> tech`, then add an entry here.
 export type TechPost = { slug: string; title: string; summary: string; date?: string };
 export const techPosts: TechPost[] = [];
