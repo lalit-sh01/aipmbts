@@ -10,7 +10,7 @@ export const site = {
   github: 'https://github.com/lalit-sh01',
   resume: '/resume/Lalit-Shewani-Resume.pdf',
   // Buttondown username. Leave empty until the account exists; the form shows a "coming soon" state.
-  buttondown: '',
+  buttondown: 'lalitshewani',
   photo: '/img/lalit-480.webp',
   photoLarge: '/img/lalit-960.webp',
 };
