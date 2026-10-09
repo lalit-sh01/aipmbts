@@ -23,4 +23,7 @@ About section redesign: COMPLETE (6c038e7).
 (none)
 
 ## Parked
-- Launch post for LinkedIn: two drafts (2026-10-09) rejected by the author; parked. Re-open with new material from him (why he built the site, one real moment).
+- Launch post for LinkedIn: PARKED again 2026-10-09 23:49, author "not satisfied yet".
+  - His reason for the site (his words): product management has moved past the books and the theory; it is about learning from each other, and sharing is part of it; it is about situations and the options available; context is the only truth and it determines the best way forward.
+  - His base draft: "Belief first" version (opens "Product management has moved past the books and the theory."). Rejected along the way: a site tour (dwelt on specifics), and an announcement-first rewrite.
+  - Suggestions pending his call: restore his full line "Context is the only truth, and it decides the best way forward."; confirm the inferred line "But the calls I make now rarely look like the examples in them."; replace "The tech side comes next" with a plain line; add #ProductManagement #AIProducts.
