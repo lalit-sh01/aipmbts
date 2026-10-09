@@ -11,3 +11,13 @@
   window.addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(update); } }, { passive: true });
   window.addEventListener('resize', update); update();
 })();
+
+// Tab icon follows the post's theme toggle, like the rest of the site.
+(function () {
+  var r = document.documentElement;
+  function sync() {
+    var t = r.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+    document.querySelectorAll('link[data-icon]').forEach(function (l) { l.media = l.href.indexOf('icon-' + t) > -1 ? 'all' : 'not all'; });
+  }
+  sync(); new MutationObserver(sync).observe(r, { attributes: true, attributeFilter: ['data-theme'] });
+})();

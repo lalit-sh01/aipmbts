@@ -19,7 +19,9 @@ fs.writeFileSync(path.join(out, 'assets/fonts.css'),
 
 const head = [
   '<link rel="stylesheet" href="/post-enhance.css">',
-  '<link rel="icon" href="/marks/signature-glyph.svg" type="image/svg+xml">',
+  '<link rel="icon" href="/marks/icon-dark.svg" type="image/svg+xml" media="(prefers-color-scheme: dark)" data-icon>',
+  '<link rel="icon" href="/marks/icon-light.svg" type="image/svg+xml" media="(prefers-color-scheme: light)" data-icon>',
+  '<link rel="apple-touch-icon" href="/apple-touch-icon.png">',
   '<meta property="og:site_name" content="Lalit Shewani">',
   `<meta property="og:image" content="${site}/og/og-card.jpg">`,
   '<meta property="og:image:width" content="1200">',

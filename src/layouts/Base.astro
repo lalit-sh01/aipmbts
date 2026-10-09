@@ -23,7 +23,9 @@ const { noindex = false } = Astro.props;
     <title>{fullTitle}</title>
     <meta name="description" content={description} />
     {noindex ? <meta name="robots" content="noindex" /> : <link rel="canonical" href={canonical} />}
-    <link rel="icon" href="/marks/signature-glyph.svg" type="image/svg+xml" />
+    <link rel="icon" href="/marks/icon-dark.svg" type="image/svg+xml" media="(prefers-color-scheme: dark)" data-icon />
+    <link rel="icon" href="/marks/icon-light.svg" type="image/svg+xml" media="(prefers-color-scheme: light)" data-icon />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="preload" href="/fonts/outfit-latin-500-normal.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="/fonts/geist-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin />
     <meta property="og:title" content={fullTitle} />
@@ -59,6 +61,16 @@ const { noindex = false } = Astro.props;
     <main id="main"><slot /></main>
     <Footer />
     <TabBar />
+    <script is:inline>
+      (function () {
+        var r = document.documentElement;
+        function sync() {
+          var t = r.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+          document.querySelectorAll('link[data-icon]').forEach(function (l) { l.media = l.href.indexOf('icon-' + t) > -1 ? 'all' : 'not all'; });
+        }
+        sync(); new MutationObserver(sync).observe(r, { attributes: true, attributeFilter: ['data-theme'] });
+      })();
+    </script>
     <script>import '../scripts/motion.ts'; import '../scripts/interact.ts';</script>
       {site.cfAnalytics && <script is:inline type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon={JSON.stringify({ token: site.cfAnalytics })}></script>}
   </body>

@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <linearGradient id="w" gradientUnits="userSpaceOnUse" x1="0" y1="52" x2="0" y2="12"><stop offset="0" stop-color="#c27b3c"/><stop offset=".55" stop-color="#f2bd72"/><stop offset="1" stop-color="#ffd79c"/></linearGradient>
+    <linearGradient id="c" gradientUnits="userSpaceOnUse" x1="0" y1="52" x2="0" y2="12"><stop offset="0" stop-color="#225e90"/><stop offset=".55" stop-color="#65c1ec"/><stop offset="1" stop-color="#d6f0ff"/></linearGradient>
+    <radialGradient id="g"><stop offset="0" stop-color="#ffffff"/><stop offset=".3" stop-color="#faf8fb"/><stop offset=".6" stop-color="#faf8fb" stop-opacity=".35"/><stop offset="1" stop-color="#faf8fb" stop-opacity="0"/></radialGradient>
+    <radialGradient id="wg" cx="25%" cy="70%" r="55%"><stop offset="0" stop-color="#7e502e" stop-opacity=".55"/><stop offset="1" stop-color="#7e502e" stop-opacity="0"/></radialGradient>
+    <radialGradient id="cg" cx="75%" cy="70%" r="55%"><stop offset="0" stop-color="#183a68" stop-opacity=".7"/><stop offset="1" stop-color="#183a68" stop-opacity="0"/></radialGradient>
+    <filter id="soft" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="1.6"/></filter>
+  </defs>
+  <rect width="64" height="64" rx="14" fill="#070a0e"/>
+  <rect width="64" height="64" rx="14" fill="url(#wg)"/><rect width="64" height="64" rx="14" fill="url(#cg)"/>
+  <g filter="url(#soft)" opacity=".7">
+    <path d="M28 51 A19 19 0 0 1 32 13" fill="none" stroke="url(#w)" stroke-width="6" stroke-linecap="round"/>
+    <path d="M36 51 A19 19 0 0 0 32 13" fill="none" stroke="url(#c)" stroke-width="6" stroke-linecap="round"/>
+  </g>
+  <path d="M28 51 A19 19 0 0 1 32 13" fill="none" stroke="url(#w)" stroke-width="4.5" stroke-linecap="round"/>
+  <path d="M36 51 A19 19 0 0 0 32 13" fill="none" stroke="url(#c)" stroke-width="4.5" stroke-linecap="round"/>
+  <circle cx="32" cy="13" r="10" fill="url(#g)"/>
+</svg>
