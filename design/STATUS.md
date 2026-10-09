@@ -21,3 +21,6 @@ About section redesign: COMPLETE (6c038e7).
 
 ## Detours
 (none)
+
+## Parked
+- Launch post for LinkedIn: two drafts (2026-10-09) rejected by the author; parked. Re-open with new material from him (why he built the site, one real moment).

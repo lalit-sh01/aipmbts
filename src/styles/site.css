@@ -325,16 +325,16 @@ main .if-card{background:color-mix(in oklab,var(--card) 82%,transparent);-webkit
 /* P2: desktop section index, in the left gutter, appears once you leave the hero */
 .sec-index{display:none}
 @media(min-width:1280px){
-  .sec-index{position:fixed;left:clamp(16px,1.6vw,32px);top:50%;z-index:4;display:flex;flex-direction:column;gap:var(--space-4);
-    transform:translate(-8px,-50%);opacity:0;pointer-events:none;transition:opacity var(--m-base) var(--if-ease),transform var(--m-base) var(--if-ease)}
+  .sec-index{position:fixed;right:clamp(16px,1.6vw,32px);top:50%;z-index:4;display:flex;flex-direction:column;align-items:flex-end;gap:var(--space-4);
+    transform:translate(8px,-50%);opacity:0;pointer-events:none;transition:opacity var(--m-base) var(--if-ease),transform var(--m-base) var(--if-ease)}
   .sec-index.on{opacity:1;transform:translate(0,-50%);pointer-events:auto}
-  .sec-index a{position:relative;display:flex;align-items:center;gap:var(--space-2);color:var(--mist);text-decoration:none;font-family:var(--font-display);font-size:var(--fs-2xs);letter-spacing:.14em;text-transform:uppercase;transition:color var(--m-fast) var(--if-ease)}
-  .sec-index a span:last-child{opacity:0;transform:translateX(-4px);transition:opacity var(--m-fast) var(--if-ease),transform var(--m-fast) var(--if-ease)}
+  .sec-index a{position:relative;display:flex;flex-direction:row-reverse;align-items:center;gap:var(--space-2);color:var(--mist);text-decoration:none;font-family:var(--font-display);font-size:var(--fs-2xs);letter-spacing:.14em;text-transform:uppercase;transition:color var(--m-fast) var(--if-ease)}
+  .sec-index a span:last-child{padding:2px var(--space-2);border-radius:var(--radius-full);background:color-mix(in oklab,var(--scene-bg,var(--obsidian)) 88%,transparent);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);opacity:0;transform:translateX(4px);transition:opacity var(--m-fast) var(--if-ease),transform var(--m-fast) var(--if-ease)}
   .sec-index:hover a span:last-child,.sec-index a[aria-current] span:last-child{opacity:1;transform:none}
   .sec-index a[aria-current]{color:var(--cloud)}
   .sec-index .side-dot{width:7px;height:7px;opacity:.55;transition:transform var(--m-fast) var(--if-ease),opacity var(--m-fast)}
   .sec-index a[aria-current] .side-dot{opacity:1;transform:scale(1.5)}
-  .si-track{position:absolute;left:3px;top:4px;bottom:4px;width:1px;background:var(--hairline);z-index:-1}
+  .si-track{position:absolute;right:3px;top:4px;bottom:4px;width:1px;background:var(--hairline);z-index:-1}
   .si-fill{position:absolute;inset:0;background:linear-gradient(var(--champagne),var(--electric-blue));transform-origin:top;transform:scaleY(var(--progress,0))}
 }
 /* P3: theme circle reveal — let the new view draw over the old one, no default crossfade */
