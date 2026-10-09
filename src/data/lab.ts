@@ -15,6 +15,7 @@ export const builds: Build[] = [
     tags: ['LangGraph', 'RAG', 'Agents'],
     problem: 'Skills fade when you stop using them, and most learning roadmaps don’t adapt to you.',
     approach: 'A multi-agent setup in LangGraph, with retrieval (RAG), that generates the curriculum as you learn.',
+    outcome: 'Still in progress. A first pilot is planned for early 2027, with product managers moving into AI product management.',
   },
   {
     name: 'Privacy-first file organiser',
