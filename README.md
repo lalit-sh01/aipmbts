@@ -27,7 +27,8 @@ npm run build    # output in dist/
 
 - **No made-up numbers.** Every figure comes word for word from the resume or a published post.
 - **Ford work stays abstract:** no product names and no figures.
-- **Copy follows the author's voice and style bible** (`AI-Product-Playbook/canon/11-author-voice.md` and `01-style-bible.md`).
+- **Copy follows the author's voice and style bible** (`series/playbook/canon/11-author-voice.md` and `01-style-bible.md` in the private repo `lalit-content`).
+- **Planning stays private.** Growth plans, status notes and drafts live in `lalit-content`, never in this public repo. Only built pages come here.
 
 ## Scenes
 
