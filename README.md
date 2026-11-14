@@ -52,4 +52,4 @@ The repo is connected to a Cloudflare Worker named `aipmbts`, which serves `dist
 - Deploy command: `npx wrangler deploy`
 - Variable: `NODE_VERSION` = `22`
 
-Every push to `main` then redeploys. When the domain is bought, update `site.url` in `src/data/site.ts`, `site` in `astro.config.mjs` and `public/robots.txt`.
+Every push to `main` then redeploys. The site lives at https://lalitshewani.com (and `www.`): both are Workers custom domains declared in `wrangler.jsonc`. The domain appears in `src/data/site.ts`, `astro.config.mjs`, `public/robots.txt` and `tools/import-post.mjs`; change all four together.

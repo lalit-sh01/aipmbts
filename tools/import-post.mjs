@@ -8,7 +8,7 @@ const [src, slug, section = 'lessons'] = process.argv.slice(2);
 if (!src || !slug || !['lessons', 'tech'].includes(section)) {
   console.error('usage: node tools/import-post.mjs <blog folder> <slug> [lessons|tech]'); process.exit(1);
 }
-const site = 'https://aipmbts.lalit-shewani01.workers.dev';
+const site = 'https://lalitshewani.com';
 const cfToken = '9e9ecaa39c354e1d87cd2e6ba73bf95c';
 const url = `${site}/${section}/${slug}/`;
 const out = path.join('public', section, slug);

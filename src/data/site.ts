@@ -1,8 +1,8 @@
 // One place for everything that changes when the site goes live.
 export const site = {
   name: 'Lalit Shewani',
-  // Replace with the real domain once it is bought. Every canonical link and the sitemap follow it.
-  url: 'https://aipmbts.lalit-shewani01.workers.dev',
+  // The live domain. Every canonical link and the sitemap follow it.
+  url: 'https://lalitshewani.com',
   description:
     'Lalit Shewani is a senior AI product manager. Product manager by day, builder by night: notes from inside AI product work, and the things he builds.',
   email: 'lalit.shewani01@gmail.com',
