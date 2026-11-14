@@ -37,6 +37,7 @@ const tail = [
 let html = fs.readFileSync(path.join(src, 'index.html'), 'utf8');
 html = html
   .replace(/href="https:\/\/your-portfolio\.example"/g, 'href="/"')
+  .replace(/<a class="bp-brand" href="[^"]*"/, '<a class="bp-brand" href="/"')
   .replace(/<link rel="canonical" href="[^"]*">/, `<link rel="canonical" href="${url}">`)
   .replace(/<meta property="og:url" content="[^"]*">/, `<meta property="og:url" content="${url}">`)
   .replace(/t=window\.matchMedia&&matchMedia\('\(prefers-color-scheme: light\)'\)\.matches\?'light':'dark'/, "t='dark'")
